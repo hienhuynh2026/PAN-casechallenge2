@@ -5,6 +5,8 @@
 **Estimated Time Spent:** ~6 hours coding; ~2 hours for documentation and video recording
 
 
+**Demo Video:** [https://youtu.be/MvtC5q8O3jI](https://youtu.be/MvtC5q8O3jI)
+
 Full-stack app for resume parsing, profile management, role alignment scoring, semantic job retrieval, and AI-assisted coaching.
 
 ## Quick Start
