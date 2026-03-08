@@ -259,15 +259,6 @@ npm test
 
 Tests mock all external services (Groq, Gemini). No API keys needed.
 
-## Known Limitations
-
-- Scoring gate remains deterministic keyword/section heuristic for explainability
-- Resume parsing quality depends on extracted PDF text quality
-- Gemini free-tier quotas can throttle embedding calls on heavy usage (mitigated by caching and batching)
-- No auth/multi-tenant isolation (single-user local workflow)
-- Embedding vectors are stored in a JSON file, not a vector database (sufficient for ~100 jobs)
-- Learning resource links are curated/preset (~20 skills + role category hints); skills outside those maps get no links without a web search API
-
 ## AI Disclosure
 
 **Did you use an AI assistant?** Yes. I used Claude Code (Copilot-style, powered by Claude Opus 4.6).
@@ -281,6 +272,22 @@ I also deliberately tested failure scenarios to ensure resilience. I simulated m
 
 **Example of a suggestion I rejected or changed:**
 The AI initially proposed building the RAG pipeline using Groq for both evaluation and embeddings. I pushed back on this because Groq does not expose embedding endpoints at the free tier. I researched alternatives and determined that Gemini's `gemini-embedding-001` model fit the requirements; it supports batch embedding, has a generous free tier, and returns high-quality dense vectors suitable for cosine similarity retrieval. The final architecture uses Groq exclusively for LLM grading and gap summarization, and Gemini exclusively for semantic embeddings, with TF-IDF as the automatic fallback when Gemini is unavailable.
+
+## Tradeoffs and Prioritization
+
+**What did you cut to stay within the 4-6 hour limit?**
+I focused on building one strong end-to-end workflow instead of trying to make every part of the product fully polished. That meant I did not spend extra time chasing smaller performance issues, such as some unexplained latency, because they were not blocking the core user flow. I also avoided building a more advanced resource recommendation system, even though that would have made the output stronger. Given the time limit, it was more important to make sure the resume parsing, gap analysis, threshold logic, and fallback behavior were working reliably than to overinvest in secondary features.
+
+**What would you build next if you had more time?**
+The next step would be improving how the platform recommends learning resources. Right now, some of the links tied to missing skills are hardcoded, and the knowledge base is mainly centered around software engineering roles. In a future iteration, I would replace that with a smarter retrieval pipeline, potentially using a scraper or curated external data source, so the system could surface more dynamic and role-specific recommendations. I would also spend more time improving API choice and reliability, reducing latency, and broadening the knowledge base beyond software engineering so the platform could support a wider range of careers.
+
+**Known limitations:**
+- Scoring gate remains deterministic keyword/section heuristic for explainability
+- Resume parsing quality depends on extracted PDF text quality
+- Gemini free-tier quotas can throttle embedding calls on heavy usage (mitigated by caching and batching)
+- No auth/multi-tenant isolation (single-user local workflow)
+- Embedding vectors are stored in a JSON file, not a vector database (sufficient for ~100 jobs)
+- Learning resource links are curated/preset (~20 skills + role category hints); skills outside those maps get no links without a web search API
 
 ## Security Notes
 
