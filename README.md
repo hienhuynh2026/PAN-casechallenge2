@@ -1,7 +1,8 @@
 # Skill-Bridge Career Navigator
 
 **Candidate Name:** Hien Huynh
-**Scenario Chosen:** Scenario 2: Skill-Bridge Career Navigator
+**Scenario Chosen:
+** Scenario 2: Skill-Bridge Career Navigator
 **Estimated Time Spent:** ~6 hours coding; ~2 hours for documentation and video recording
 
 Full-stack app for resume parsing, profile management, role alignment scoring, semantic job retrieval, and AI-assisted coaching.
