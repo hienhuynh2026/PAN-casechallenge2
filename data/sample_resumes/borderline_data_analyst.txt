@@ -1,0 +1,31 @@
+Alex Kim
+alex.kim@email.com | (555) 987-6543
+
+SUMMARY
+Recent graduate with a background in business administration and exposure to data analysis tools. Comfortable with Excel and basic SQL. Looking to transition into a data analyst role.
+
+SKILLS
+Microsoft Excel, Google Sheets, SQL (basic), Python (beginner), PowerPoint
+
+EXPERIENCE
+
+Business Operations Intern — Retail Co. (May 2023 – Aug 2023)
+- Assisted the operations team with weekly reporting using Excel spreadsheets
+- Created pivot tables and charts to summarise weekly sales data
+- Helped prepare PowerPoint presentations for management meetings
+
+Customer Service Representative — Local Bank (Jan 2022 – Apr 2023)
+- Resolved customer inquiries and documented issues in the CRM system
+- Tracked daily transaction volumes in a shared Google Sheet
+
+PROJECTS
+
+Sales Dashboard (Excel)
+- Built a basic sales dashboard using Excel pivot tables and charts for a class project
+- Presented findings to a class of 20 students
+
+SQL Practice (Personal)
+- Completed SQL exercises on W3Schools covering SELECT, WHERE, and JOIN statements
+
+EDUCATION
+Bachelor's Degree in Business Administration — City College, 2023

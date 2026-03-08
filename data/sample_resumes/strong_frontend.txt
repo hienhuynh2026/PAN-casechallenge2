@@ -1,0 +1,44 @@
+Jane Doe
+jane.doe@email.com | (555) 123-4567 | github.com/janedoe | linkedin.com/in/janedoe
+
+SUMMARY
+Frontend Developer with 3 years of experience building responsive, accessible web applications using React and TypeScript. Passionate about performance optimisation and clean component architecture.
+
+SKILLS
+Languages: JavaScript, TypeScript, HTML, CSS
+Frameworks: React, Next.js, Redux
+Styling: Tailwind CSS, Sass, CSS Modules
+Testing: Jest, React Testing Library, Cypress
+Tooling: Vite, Webpack, ESLint, npm, Git
+Other: REST API integration, Figma, accessibility, responsive design, state management
+
+EXPERIENCE
+
+Frontend Developer — Acme Corp (Jan 2022 – Present)
+- Built a React dashboard used by 12,000 monthly active users, reducing customer support tickets by 18%
+- Implemented lazy loading and code splitting, improving initial page load time by 35%
+- Refactored legacy class components to functional components with hooks, reducing bundle size by 22%
+- Integrated REST APIs and managed global state with Redux Toolkit across 8 major product features
+- Designed and implemented a reusable component library used across 4 product teams
+
+Junior Frontend Developer — Startup XYZ (Jun 2021 – Dec 2021)
+- Developed responsive landing pages with HTML, CSS, and vanilla JavaScript, increasing conversion rate by 12%
+- Built UI components in React for a SPA that shipped to 5,000 users
+- Collaborated with designers using Figma to implement pixel-perfect interfaces
+
+PROJECTS
+
+Personal Finance Tracker (React, TypeScript, Vite, Tailwind)
+- Built a client-side web app for budgeting with local storage persistence and chart visualisations
+- Implemented Jest unit tests covering 85% of utility functions
+- Deployed to Vercel with GitHub Actions CI/CD
+
+Portfolio Site (Next.js, TypeScript)
+- Created a statically generated portfolio using Next.js SSG
+- Achieved 98 Lighthouse performance score with optimised images and fonts
+
+EDUCATION
+Bachelor's Degree in Computer Science — State University, 2021
+
+CERTIFICATIONS
+Meta Front-End Developer Certificate (Coursera), 2022

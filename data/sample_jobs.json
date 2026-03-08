@@ -1,0 +1,2067 @@
+[
+  {
+    "id": "1",
+    "title": "Frontend Developer",
+    "company": "NovaTech",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "TypeScript",
+      "Vue",
+      "Jest"
+    ],
+    "preferredSkills": [
+      "Sass",
+      "Performance Optimization",
+      "Next.js",
+      "Storybook"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build responsive web interfaces and collaborate with backend engineers to deliver high-quality user experiences."
+  },
+  {
+    "id": "2",
+    "title": "Frontend Developer",
+    "company": "DeepSight AI",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Angular"
+    ],
+    "preferredSkills": [
+      "Sass",
+      "Next.js"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop and maintain modern frontend applications using component-based architecture and design systems."
+  },
+  {
+    "id": "3",
+    "title": "Frontend Developer",
+    "company": "Nexus Digital",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Tailwind"
+    ],
+    "preferredSkills": [
+      "Webpack",
+      "Storybook"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Create pixel-perfect, accessible UIs from design mockups and ensure cross-browser compatibility."
+  },
+  {
+    "id": "4",
+    "title": "Frontend Developer",
+    "company": "Acme Corp",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Tailwind",
+      "Jest",
+      "Vite"
+    ],
+    "preferredSkills": [
+      "Figma",
+      "Sass"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Lead frontend development efforts, mentor junior developers, and champion best practices in code quality."
+  },
+  {
+    "id": "5",
+    "title": "Frontend Developer",
+    "company": "ElasticOps",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Webpack"
+    ],
+    "preferredSkills": [
+      "Jest",
+      "Tailwind"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build performant single-page applications with real-time data visualization and interactive dashboards."
+  },
+  {
+    "id": "6",
+    "title": "Frontend Developer",
+    "company": "Vertex Labs",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Storybook"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Next.js"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build responsive web interfaces and collaborate with backend engineers to deliver high-quality user experiences."
+  },
+  {
+    "id": "7",
+    "title": "Frontend Developer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Tailwind",
+      "TypeScript",
+      "Sass",
+      "GraphQL"
+    ],
+    "preferredSkills": [
+      "Next.js",
+      "Jest",
+      "Storybook",
+      "Webpack"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Develop and maintain modern frontend applications using component-based architecture and design systems."
+  },
+  {
+    "id": "8",
+    "title": "Frontend Developer",
+    "company": "Insight Analytics",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Next.js",
+      "Tailwind",
+      "Vite",
+      "GraphQL"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Jest",
+      "Webpack",
+      "Performance Optimization"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Create pixel-perfect, accessible UIs from design mockups and ensure cross-browser compatibility."
+  },
+  {
+    "id": "9",
+    "title": "Frontend Developer",
+    "company": "InfraVault",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "TypeScript"
+    ],
+    "preferredSkills": [
+      "Tailwind",
+      "Next.js"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Lead frontend development efforts, mentor junior developers, and champion best practices in code quality."
+  },
+  {
+    "id": "10",
+    "title": "Frontend Developer",
+    "company": "Stratosphere Systems",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "REST APIs",
+      "Angular",
+      "Vue"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Next.js",
+      "Tailwind"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build performant single-page applications with real-time data visualization and interactive dashboards."
+  },
+  {
+    "id": "11",
+    "title": "Backend Developer",
+    "company": "NovaTech",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "Monitoring",
+      "GraphQL",
+      "Docker"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and maintain server-side applications and APIs that power our platform services."
+  },
+  {
+    "id": "12",
+    "title": "Backend Developer",
+    "company": "ScaleMind",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "Redis"
+    ],
+    "preferredSkills": [
+      "CI/CD",
+      "Microservices",
+      "Kubernetes",
+      "Kafka"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build scalable microservices and event-driven architectures to handle millions of requests per day."
+  },
+  {
+    "id": "13",
+    "title": "Backend Developer",
+    "company": "ElasticOps",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "GraphQL"
+    ],
+    "preferredSkills": [
+      "Redis",
+      "PostgreSQL",
+      "Kafka"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop robust backend systems with a focus on security, performance, and reliability."
+  },
+  {
+    "id": "14",
+    "title": "Backend Developer",
+    "company": "Vertex Labs",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "GraphQL",
+      "AWS",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "CI/CD",
+      "Kubernetes",
+      "Monitoring",
+      "Kafka"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Create and optimize database schemas, API endpoints, and background job processing systems."
+  },
+  {
+    "id": "15",
+    "title": "Backend Developer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "Docker",
+      "AWS",
+      "PostgreSQL"
+    ],
+    "preferredSkills": [
+      "Microservices",
+      "Redis"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Architect distributed backend services that integrate with third-party APIs and message queues."
+  },
+  {
+    "id": "16",
+    "title": "Backend Developer",
+    "company": "CodePath",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "PostgreSQL",
+      "GraphQL",
+      "AWS"
+    ],
+    "preferredSkills": [
+      "Redis",
+      "Microservices"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Design and maintain server-side applications and APIs that power our platform services."
+  },
+  {
+    "id": "17",
+    "title": "Backend Developer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "MongoDB",
+      "Docker",
+      "Java"
+    ],
+    "preferredSkills": [
+      "Microservices",
+      "Redis",
+      "Kafka",
+      "PostgreSQL"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build scalable microservices and event-driven architectures to handle millions of requests per day."
+  },
+  {
+    "id": "18",
+    "title": "Backend Developer",
+    "company": "SecureLayer",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "Docker",
+      "Express"
+    ],
+    "preferredSkills": [
+      "CI/CD",
+      "TypeScript",
+      "PostgreSQL"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Develop robust backend systems with a focus on security, performance, and reliability."
+  },
+  {
+    "id": "19",
+    "title": "Backend Developer",
+    "company": "DeepSight AI",
+    "requiredSkills": [
+      "Node.js",
+      "JavaScript",
+      "REST APIs",
+      "SQL",
+      "PostgreSQL",
+      "AWS",
+      "MongoDB"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Monitoring"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Create and optimize database schemas, API endpoints, and background job processing systems."
+  },
+  {
+    "id": "20",
+    "title": "Full Stack Developer",
+    "company": "SecureLayer",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Docker",
+      "HTML",
+      "CSS"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop end-to-end features across the entire stack, from database design to pixel-perfect UIs."
+  },
+  {
+    "id": "21",
+    "title": "Full Stack Developer",
+    "company": "Vertex Labs",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "GraphQL",
+      "CI/CD"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Own full product features from concept to deployment, working across frontend and backend systems."
+  },
+  {
+    "id": "22",
+    "title": "Full Stack Developer",
+    "company": "CoreLogic",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "SQL",
+      "Express"
+    ],
+    "preferredSkills": [
+      "CI/CD",
+      "Redis",
+      "Next.js"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build and ship user-facing features rapidly in a fast-paced startup environment."
+  },
+  {
+    "id": "23",
+    "title": "Full Stack Developer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Redis",
+      "TypeScript",
+      "GraphQL"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "AWS",
+      "Next.js"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Collaborate with designers and product managers to deliver seamless full-stack experiences."
+  },
+  {
+    "id": "24",
+    "title": "Full Stack Developer",
+    "company": "Nexus Digital",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Tailwind",
+      "GraphQL",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "Next.js",
+      "CI/CD",
+      "Redis"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Maintain and extend a modern web application with both customer-facing and internal admin interfaces."
+  },
+  {
+    "id": "25",
+    "title": "Full Stack Developer",
+    "company": "CipherTech",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Tailwind",
+      "CSS"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "AWS",
+      "Testing",
+      "Next.js"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Develop end-to-end features across the entire stack, from database design to pixel-perfect UIs."
+  },
+  {
+    "id": "26",
+    "title": "Full Stack Developer",
+    "company": "NetShield",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "REST APIs",
+      "TypeScript",
+      "Python"
+    ],
+    "preferredSkills": [
+      "PostgreSQL",
+      "Docker",
+      "Redis"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Own full product features from concept to deployment, working across frontend and backend systems."
+  },
+  {
+    "id": "27",
+    "title": "Full Stack Developer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Tailwind",
+      "GraphQL"
+    ],
+    "preferredSkills": [
+      "TypeScript",
+      "Testing",
+      "CI/CD",
+      "Docker"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build and ship user-facing features rapidly in a fast-paced startup environment."
+  },
+  {
+    "id": "28",
+    "title": "Full Stack Developer",
+    "company": "BrightData",
+    "requiredSkills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript"
+    ],
+    "preferredSkills": [
+      "Redis",
+      "GraphQL"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Collaborate with designers and product managers to deliver seamless full-stack experiences."
+  },
+  {
+    "id": "29",
+    "title": "Cloud Engineer",
+    "company": "NovaTech",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Networking",
+      "Docker",
+      "CI/CD"
+    ],
+    "preferredSkills": [
+      "Ansible",
+      "CloudFormation",
+      "Monitoring",
+      "Cost Optimization"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Architect, deploy, and manage scalable cloud infrastructure on AWS to support growing business needs."
+  },
+  {
+    "id": "30",
+    "title": "Cloud Engineer",
+    "company": "FortiNet Labs",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "IAM",
+      "S3"
+    ],
+    "preferredSkills": [
+      "Cost Optimization",
+      "Multi-cloud"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and implement cloud-native solutions with high availability and disaster recovery."
+  },
+  {
+    "id": "31",
+    "title": "Cloud Engineer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Terraform",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "Ansible",
+      "CloudFormation",
+      "Kubernetes",
+      "Monitoring"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Migrate on-premise workloads to the cloud and optimize infrastructure costs across environments."
+  },
+  {
+    "id": "32",
+    "title": "Cloud Engineer",
+    "company": "Acme Corp",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Git",
+      "Networking"
+    ],
+    "preferredSkills": [
+      "Prometheus",
+      "Monitoring"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build and maintain Infrastructure-as-Code pipelines for repeatable, auditable deployments."
+  },
+  {
+    "id": "33",
+    "title": "Cloud Engineer",
+    "company": "DataFlow Analytics",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Git",
+      "Docker",
+      "Ansible"
+    ],
+    "preferredSkills": [
+      "Prometheus",
+      "Multi-cloud",
+      "Cost Optimization"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Manage multi-region cloud deployments and implement security best practices across all services."
+  },
+  {
+    "id": "34",
+    "title": "Cloud Engineer",
+    "company": "Stratosphere Systems",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Lambda",
+      "CI/CD",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "Cost Optimization",
+      "Multi-cloud",
+      "Terraform"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Architect, deploy, and manage scalable cloud infrastructure on AWS to support growing business needs."
+  },
+  {
+    "id": "35",
+    "title": "Cloud Engineer",
+    "company": "DeepSight AI",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Networking"
+    ],
+    "preferredSkills": [
+      "Ansible",
+      "Prometheus"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Design and implement cloud-native solutions with high availability and disaster recovery."
+  },
+  {
+    "id": "36",
+    "title": "Cloud Engineer",
+    "company": "NetShield",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "Terraform"
+    ],
+    "preferredSkills": [
+      "CloudFormation",
+      "Ansible"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Migrate on-premise workloads to the cloud and optimize infrastructure costs across environments."
+  },
+  {
+    "id": "37",
+    "title": "Cloud Engineer",
+    "company": "InfraVault",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "EC2",
+      "Terraform",
+      "S3"
+    ],
+    "preferredSkills": [
+      "Ansible",
+      "Cost Optimization",
+      "Grafana"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build and maintain Infrastructure-as-Code pipelines for repeatable, auditable deployments."
+  },
+  {
+    "id": "38",
+    "title": "Cloud Engineer",
+    "company": "FlowState",
+    "requiredSkills": [
+      "AWS",
+      "Linux",
+      "Python",
+      "GCP",
+      "Kubernetes",
+      "EC2"
+    ],
+    "preferredSkills": [
+      "Docker",
+      "Prometheus",
+      "Multi-cloud",
+      "Cost Optimization"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Manage multi-region cloud deployments and implement security best practices across all services."
+  },
+  {
+    "id": "39",
+    "title": "DevOps Engineer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Jenkins",
+      "Python"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "Incident Response",
+      "GitOps"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build and maintain CI/CD pipelines, automate deployments, and improve developer productivity."
+  },
+  {
+    "id": "40",
+    "title": "DevOps Engineer",
+    "company": "CodePath",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Helm"
+    ],
+    "preferredSkills": [
+      "Incident Response",
+      "Prometheus"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and operate container orchestration platforms and infrastructure automation systems."
+  },
+  {
+    "id": "41",
+    "title": "DevOps Engineer",
+    "company": "Vertex Labs",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Azure",
+      "Git",
+      "Networking",
+      "Prometheus"
+    ],
+    "preferredSkills": [
+      "Incident Response",
+      "AWS"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Implement GitOps workflows and ensure reliable, repeatable deployments across environments."
+  },
+  {
+    "id": "42",
+    "title": "DevOps Engineer",
+    "company": "Uptime Solutions",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Azure",
+      "Prometheus"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "Terraform",
+      "AWS",
+      "ArgoCD"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Monitor system health, respond to incidents, and continuously improve infrastructure reliability."
+  },
+  {
+    "id": "43",
+    "title": "DevOps Engineer",
+    "company": "FlowState",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Grafana",
+      "Prometheus",
+      "Terraform"
+    ],
+    "preferredSkills": [
+      "SLO/SLI",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Automate infrastructure provisioning and configuration management across cloud environments."
+  },
+  {
+    "id": "44",
+    "title": "DevOps Engineer",
+    "company": "CipherTech",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Prometheus",
+      "Grafana",
+      "Networking",
+      "ArgoCD"
+    ],
+    "preferredSkills": [
+      "Helm",
+      "Kubernetes",
+      "Terraform",
+      "GitOps"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build and maintain CI/CD pipelines, automate deployments, and improve developer productivity."
+  },
+  {
+    "id": "45",
+    "title": "DevOps Engineer",
+    "company": "InfraVault",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "Kubernetes",
+      "Helm"
+    ],
+    "preferredSkills": [
+      "SLO/SLI",
+      "GitOps"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Design and operate container orchestration platforms and infrastructure automation systems."
+  },
+  {
+    "id": "46",
+    "title": "DevOps Engineer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "AWS",
+      "ArgoCD",
+      "Terraform",
+      "Prometheus"
+    ],
+    "preferredSkills": [
+      "Incident Response",
+      "Helm"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Implement GitOps workflows and ensure reliable, repeatable deployments across environments."
+  },
+  {
+    "id": "47",
+    "title": "DevOps Engineer",
+    "company": "TerraformIO",
+    "requiredSkills": [
+      "Docker",
+      "CI/CD",
+      "Linux",
+      "GitHub Actions"
+    ],
+    "preferredSkills": [
+      "AWS",
+      "Prometheus",
+      "GitOps"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Monitor system health, respond to incidents, and continuously improve infrastructure reliability."
+  },
+  {
+    "id": "48",
+    "title": "Security Analyst",
+    "company": "FortiNet Labs",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Incident Response",
+      "Penetration Testing",
+      "Firewalls",
+      "Splunk"
+    ],
+    "preferredSkills": [
+      "OSINT",
+      "SOC Operations",
+      "Risk Assessment",
+      "Compliance"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Monitor security events, investigate incidents, and maintain SIEM rules and dashboards."
+  },
+  {
+    "id": "49",
+    "title": "Security Analyst",
+    "company": "CloudGuard Inc",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Splunk",
+      "Wireshark"
+    ],
+    "preferredSkills": [
+      "SOC Operations",
+      "Threat Intelligence",
+      "OSINT",
+      "Risk Assessment"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Conduct vulnerability assessments, analyze threats, and recommend security improvements."
+  },
+  {
+    "id": "50",
+    "title": "Security Analyst",
+    "company": "Hyperion Cloud",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Compliance",
+      "Malware Analysis",
+      "Wireshark"
+    ],
+    "preferredSkills": [
+      "Risk Assessment",
+      "Penetration Testing",
+      "SOC Operations",
+      "OSINT"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Perform security monitoring, log analysis, and incident triage in a 24/7 SOC environment."
+  },
+  {
+    "id": "51",
+    "title": "Security Analyst",
+    "company": "CodePath",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "IDS/IPS"
+    ],
+    "preferredSkills": [
+      "Splunk",
+      "Threat Intelligence"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop and enforce security policies, conduct audits, and ensure regulatory compliance."
+  },
+  {
+    "id": "52",
+    "title": "Security Analyst",
+    "company": "ScaleMind",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Firewalls",
+      "Incident Response",
+      "Wireshark"
+    ],
+    "preferredSkills": [
+      "Compliance",
+      "OSINT",
+      "Splunk",
+      "SOC Operations"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Analyze network traffic for anomalies, investigate alerts, and support forensic investigations."
+  },
+  {
+    "id": "53",
+    "title": "Security Analyst",
+    "company": "LaunchPad Ventures",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Vulnerability Assessment",
+      "Malware Analysis",
+      "TCP/IP",
+      "Splunk"
+    ],
+    "preferredSkills": [
+      "Compliance",
+      "Incident Response",
+      "Risk Assessment"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Monitor security events, investigate incidents, and maintain SIEM rules and dashboards."
+  },
+  {
+    "id": "54",
+    "title": "Security Analyst",
+    "company": "NetShield",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "TCP/IP"
+    ],
+    "preferredSkills": [
+      "Splunk",
+      "Python",
+      "Penetration Testing",
+      "Incident Response"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Conduct vulnerability assessments, analyze threats, and recommend security improvements."
+  },
+  {
+    "id": "55",
+    "title": "Security Analyst",
+    "company": "ElasticOps",
+    "requiredSkills": [
+      "Network Security",
+      "SIEM",
+      "Linux",
+      "Compliance"
+    ],
+    "preferredSkills": [
+      "Incident Response",
+      "Splunk"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Perform security monitoring, log analysis, and incident triage in a 24/7 SOC environment."
+  },
+  {
+    "id": "56",
+    "title": "Cybersecurity Engineer",
+    "company": "InfraVault",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Cryptography",
+      "Compliance",
+      "Vulnerability Assessment"
+    ],
+    "preferredSkills": [
+      "Cloud Security",
+      "Docker"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and implement security controls, conduct penetration tests, and harden infrastructure."
+  },
+  {
+    "id": "57",
+    "title": "Cybersecurity Engineer",
+    "company": "Quantum Solutions",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Splunk",
+      "Compliance",
+      "SIEM",
+      "Kubernetes"
+    ],
+    "preferredSkills": [
+      "Penetration Testing",
+      "AWS"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build security automation tools and integrate security into CI/CD pipelines (DevSecOps)."
+  },
+  {
+    "id": "58",
+    "title": "Cybersecurity Engineer",
+    "company": "NetShield",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Compliance",
+      "Splunk",
+      "SIEM",
+      "AWS"
+    ],
+    "preferredSkills": [
+      "Cloud Security",
+      "Cryptography"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Architect secure cloud environments and implement zero-trust networking principles."
+  },
+  {
+    "id": "59",
+    "title": "Cybersecurity Engineer",
+    "company": "Horizon Tech",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "IDS/IPS",
+      "Splunk"
+    ],
+    "preferredSkills": [
+      "Threat Modeling",
+      "Docker"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop incident response playbooks and lead security breach investigations."
+  },
+  {
+    "id": "60",
+    "title": "Cybersecurity Engineer",
+    "company": "Nexus Digital",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Terraform",
+      "Penetration Testing",
+      "IDS/IPS",
+      "Cryptography"
+    ],
+    "preferredSkills": [
+      "Cloud Security",
+      "Zero Trust",
+      "Threat Modeling",
+      "Compliance"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Perform red team exercises and build defensive security tooling for the engineering org."
+  },
+  {
+    "id": "61",
+    "title": "Cybersecurity Engineer",
+    "company": "Acme Corp",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Terraform"
+    ],
+    "preferredSkills": [
+      "SIEM",
+      "Docker",
+      "Zero Trust",
+      "AWS"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Design and implement security controls, conduct penetration tests, and harden infrastructure."
+  },
+  {
+    "id": "62",
+    "title": "Cybersecurity Engineer",
+    "company": "CoreLogic",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Kubernetes",
+      "Docker",
+      "Cryptography"
+    ],
+    "preferredSkills": [
+      "Threat Modeling",
+      "Penetration Testing",
+      "Cloud Security"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build security automation tools and integrate security into CI/CD pipelines (DevSecOps)."
+  },
+  {
+    "id": "63",
+    "title": "Cybersecurity Engineer",
+    "company": "BrightData",
+    "requiredSkills": [
+      "Network Security",
+      "Linux",
+      "Python",
+      "Compliance",
+      "SIEM"
+    ],
+    "preferredSkills": [
+      "Penetration Testing",
+      "AWS"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Architect secure cloud environments and implement zero-trust networking principles."
+  },
+  {
+    "id": "64",
+    "title": "Cloud Security Engineer",
+    "company": "Pipeline Inc",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Security Hub",
+      "Compliance",
+      "IAM"
+    ],
+    "preferredSkills": [
+      "Multi-cloud",
+      "Kubernetes",
+      "SIEM",
+      "Threat Detection"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Secure cloud infrastructure, implement IAM policies, and monitor for security threats."
+  },
+  {
+    "id": "65",
+    "title": "Cloud Security Engineer",
+    "company": "SecureLayer",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Docker",
+      "Azure"
+    ],
+    "preferredSkills": [
+      "Threat Detection",
+      "SIEM",
+      "Terraform"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and enforce cloud security architecture across AWS, ensuring compliance with standards."
+  },
+  {
+    "id": "66",
+    "title": "Cloud Security Engineer",
+    "company": "DataFlow Analytics",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "SIEM",
+      "GuardDuty",
+      "Terraform",
+      "Python"
+    ],
+    "preferredSkills": [
+      "IAM",
+      "Multi-cloud"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build automated security scanning and remediation pipelines for cloud resources."
+  },
+  {
+    "id": "67",
+    "title": "Cloud Security Engineer",
+    "company": "MetaScale",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Azure",
+      "Python",
+      "GuardDuty",
+      "Monitoring"
+    ],
+    "preferredSkills": [
+      "Multi-cloud",
+      "SIEM"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Conduct cloud security assessments, implement guardrails, and train engineering teams."
+  },
+  {
+    "id": "68",
+    "title": "Cloud Security Engineer",
+    "company": "CodePath",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Terraform",
+      "IAM",
+      "Bash"
+    ],
+    "preferredSkills": [
+      "Compliance",
+      "GuardDuty",
+      "SIEM"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Monitor cloud environments using SIEM and native security tools, respond to incidents."
+  },
+  {
+    "id": "69",
+    "title": "Cloud Security Engineer",
+    "company": "DataNexus",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Kubernetes",
+      "Compliance",
+      "Monitoring",
+      "Python"
+    ],
+    "preferredSkills": [
+      "Terraform",
+      "Threat Detection"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Secure cloud infrastructure, implement IAM policies, and monitor for security threats."
+  },
+  {
+    "id": "70",
+    "title": "Cloud Security Engineer",
+    "company": "ZeroDay Security",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Kubernetes",
+      "Python"
+    ],
+    "preferredSkills": [
+      "Terraform",
+      "SIEM",
+      "CloudTrail"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Design and enforce cloud security architecture across AWS, ensuring compliance with standards."
+  },
+  {
+    "id": "71",
+    "title": "Cloud Security Engineer",
+    "company": "Uptime Solutions",
+    "requiredSkills": [
+      "AWS",
+      "Network Security",
+      "Linux",
+      "Terraform"
+    ],
+    "preferredSkills": [
+      "Python",
+      "IAM",
+      "SIEM",
+      "Compliance"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build automated security scanning and remediation pipelines for cloud resources."
+  },
+  {
+    "id": "72",
+    "title": "Data Engineer",
+    "company": "TerraformIO",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Terraform",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "Apache Spark",
+      "Kafka",
+      "Streaming",
+      "Databricks"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build and maintain data pipelines that process terabytes of data for analytics and ML teams."
+  },
+  {
+    "id": "73",
+    "title": "Data Engineer",
+    "company": "DeepSight AI",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Redshift",
+      "S3",
+      "Terraform"
+    ],
+    "preferredSkills": [
+      "Data Modeling",
+      "Streaming",
+      "Snowflake"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design data warehouse schemas and ETL workflows to support business intelligence reporting."
+  },
+  {
+    "id": "74",
+    "title": "Data Engineer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Airflow"
+    ],
+    "preferredSkills": [
+      "Apache Spark",
+      "Databricks"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Develop real-time streaming data pipelines using Kafka and Spark for low-latency analytics."
+  },
+  {
+    "id": "75",
+    "title": "Data Engineer",
+    "company": "SkyNet Cloud",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Git"
+    ],
+    "preferredSkills": [
+      "Snowflake",
+      "Apache Spark",
+      "Databricks"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Optimize data infrastructure for cost and performance across cloud-based data platforms."
+  },
+  {
+    "id": "76",
+    "title": "Data Engineer",
+    "company": "Cortex AI",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Snowflake",
+      "Redshift"
+    ],
+    "preferredSkills": [
+      "Databricks",
+      "dbt",
+      "Apache Spark"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build reliable, scalable data ingestion systems and ensure data quality across the org."
+  },
+  {
+    "id": "77",
+    "title": "Data Engineer",
+    "company": "Sentinel Security",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Apache Spark"
+    ],
+    "preferredSkills": [
+      "Kafka",
+      "Airflow",
+      "Snowflake"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build and maintain data pipelines that process terabytes of data for analytics and ML teams."
+  },
+  {
+    "id": "78",
+    "title": "Data Engineer",
+    "company": "Vertex Labs",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Terraform",
+      "dbt"
+    ],
+    "preferredSkills": [
+      "Airflow",
+      "Data Modeling"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Design data warehouse schemas and ETL workflows to support business intelligence reporting."
+  },
+  {
+    "id": "79",
+    "title": "Data Engineer",
+    "company": "Hyperion Cloud",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "Kafka",
+      "Docker",
+      "Snowflake"
+    ],
+    "preferredSkills": [
+      "dbt",
+      "Streaming",
+      "Redshift"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Develop real-time streaming data pipelines using Kafka and Spark for low-latency analytics."
+  },
+  {
+    "id": "80",
+    "title": "Data Engineer",
+    "company": "InfraVault",
+    "requiredSkills": [
+      "Python",
+      "SQL",
+      "AWS",
+      "dbt",
+      "Apache Spark",
+      "Data Modeling",
+      "Airflow"
+    ],
+    "preferredSkills": [
+      "Kafka",
+      "Databricks"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Optimize data infrastructure for cost and performance across cloud-based data platforms."
+  },
+  {
+    "id": "81",
+    "title": "Data Analyst",
+    "company": "Insight Analytics",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Pandas",
+      "Excel",
+      "Looker"
+    ],
+    "preferredSkills": [
+      "Dashboard Design",
+      "Machine Learning",
+      "A/B Testing",
+      "Data Storytelling"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Analyze business data, create dashboards, and present insights to stakeholders."
+  },
+  {
+    "id": "82",
+    "title": "Data Analyst",
+    "company": "PulseDev",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "NumPy"
+    ],
+    "preferredSkills": [
+      "Machine Learning",
+      "Power BI"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and run A/B tests, track KPIs, and support data-driven decision making."
+  },
+  {
+    "id": "83",
+    "title": "Data Analyst",
+    "company": "Horizon Tech",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Machine Learning"
+    ],
+    "preferredSkills": [
+      "Data Storytelling",
+      "Google Analytics",
+      "R"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build interactive dashboards and self-service analytics tools for product and marketing teams."
+  },
+  {
+    "id": "84",
+    "title": "Data Analyst",
+    "company": "SecureLayer",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Looker",
+      "Tableau",
+      "Data Visualization",
+      "Pandas"
+    ],
+    "preferredSkills": [
+      "Dashboard Design",
+      "Power BI"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Conduct exploratory data analysis, identify trends, and translate findings into recommendations."
+  },
+  {
+    "id": "85",
+    "title": "Data Analyst",
+    "company": "FortiNet Labs",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Tableau",
+      "R",
+      "Looker",
+      "NumPy"
+    ],
+    "preferredSkills": [
+      "Power BI",
+      "Dashboard Design",
+      "Google Analytics",
+      "Data Storytelling"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Support cross-functional teams with ad-hoc analyses, cohort studies, and funnel optimization."
+  },
+  {
+    "id": "86",
+    "title": "Data Analyst",
+    "company": "CloudFront Labs",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Power BI",
+      "Pandas"
+    ],
+    "preferredSkills": [
+      "R",
+      "Dashboard Design"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Analyze business data, create dashboards, and present insights to stakeholders."
+  },
+  {
+    "id": "87",
+    "title": "Data Analyst",
+    "company": "NetShield",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "Data Visualization",
+      "A/B Testing",
+      "Machine Learning"
+    ],
+    "preferredSkills": [
+      "Power BI",
+      "Google Analytics",
+      "Tableau",
+      "R"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Design and run A/B tests, track KPIs, and support data-driven decision making."
+  },
+  {
+    "id": "88",
+    "title": "Data Analyst",
+    "company": "ScaleMind",
+    "requiredSkills": [
+      "SQL",
+      "Python",
+      "Statistics",
+      "A/B Testing",
+      "Tableau",
+      "Looker",
+      "dbt"
+    ],
+    "preferredSkills": [
+      "Power BI",
+      "Machine Learning",
+      "Dashboard Design",
+      "R"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Build interactive dashboards and self-service analytics tools for product and marketing teams."
+  },
+  {
+    "id": "89",
+    "title": "Machine Learning Engineer",
+    "company": "NovaTech",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "TensorFlow",
+      "Kubernetes",
+      "Computer Vision"
+    ],
+    "preferredSkills": [
+      "NLP",
+      "Experiment Tracking"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Train, evaluate, and deploy machine learning models to production at scale."
+  },
+  {
+    "id": "90",
+    "title": "Machine Learning Engineer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "Computer Vision",
+      "NumPy",
+      "Pandas",
+      "Feature Engineering"
+    ],
+    "preferredSkills": [
+      "NLP",
+      "Experiment Tracking",
+      "Model Deployment",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build end-to-end ML pipelines from data preprocessing to model serving and monitoring."
+  },
+  {
+    "id": "91",
+    "title": "Machine Learning Engineer",
+    "company": "Horizon Tech",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "Spark",
+      "Computer Vision",
+      "Feature Engineering",
+      "NLP"
+    ],
+    "preferredSkills": [
+      "TensorFlow",
+      "Experiment Tracking"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Research and implement state-of-the-art deep learning models for NLP and computer vision."
+  },
+  {
+    "id": "92",
+    "title": "Machine Learning Engineer",
+    "company": "OmniStack",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "NumPy"
+    ],
+    "preferredSkills": [
+      "TensorFlow",
+      "NLP",
+      "Experiment Tracking",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Optimize model performance, reduce inference latency, and manage ML infrastructure."
+  },
+  {
+    "id": "93",
+    "title": "Machine Learning Engineer",
+    "company": "Nimbus Systems",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "SQL",
+      "NLP",
+      "Pandas",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "Experiment Tracking",
+      "Model Deployment",
+      "Computer Vision",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Collaborate with data scientists to productionize experimental models and A/B test them."
+  },
+  {
+    "id": "94",
+    "title": "Machine Learning Engineer",
+    "company": "TerraformIO",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "PyTorch",
+      "Spark",
+      "Scikit-learn",
+      "SQL"
+    ],
+    "preferredSkills": [
+      "TensorFlow",
+      "Docker",
+      "Computer Vision"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Train, evaluate, and deploy machine learning models to production at scale."
+  },
+  {
+    "id": "95",
+    "title": "Machine Learning Engineer",
+    "company": "FortiNet Labs",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "Pandas",
+      "PyTorch",
+      "Docker"
+    ],
+    "preferredSkills": [
+      "TensorFlow",
+      "AWS",
+      "NLP"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Build end-to-end ML pipelines from data preprocessing to model serving and monitoring."
+  },
+  {
+    "id": "96",
+    "title": "Machine Learning Engineer",
+    "company": "MetaScale",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "TensorFlow",
+      "PyTorch",
+      "Docker",
+      "MLflow"
+    ],
+    "preferredSkills": [
+      "AWS",
+      "Kubernetes",
+      "Model Deployment",
+      "Computer Vision"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Research and implement state-of-the-art deep learning models for NLP and computer vision."
+  },
+  {
+    "id": "97",
+    "title": "Machine Learning Engineer",
+    "company": "Acme Corp",
+    "requiredSkills": [
+      "Python",
+      "Machine Learning",
+      "Statistics",
+      "PyTorch",
+      "MLflow",
+      "Pandas"
+    ],
+    "preferredSkills": [
+      "Experiment Tracking",
+      "AWS",
+      "Model Deployment",
+      "Docker"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Optimize model performance, reduce inference latency, and manage ML infrastructure."
+  },
+  {
+    "id": "98",
+    "title": "Site Reliability Engineer",
+    "company": "ByteForge",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Go"
+    ],
+    "preferredSkills": [
+      "Kubernetes",
+      "Terraform"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Ensure system reliability, define SLOs, and build automation to reduce operational toil."
+  },
+  {
+    "id": "99",
+    "title": "Site Reliability Engineer",
+    "company": "StackBridge",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "PagerDuty"
+    ],
+    "preferredSkills": [
+      "Terraform",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Design and operate highly available distributed systems with robust monitoring and alerting."
+  },
+  {
+    "id": "100",
+    "title": "Site Reliability Engineer",
+    "company": "Sentinel Security",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Monitoring",
+      "PagerDuty",
+      "Grafana"
+    ],
+    "preferredSkills": [
+      "Terraform",
+      "Go",
+      "Prometheus"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Lead incident response, conduct blameless postmortems, and drive reliability improvements."
+  },
+  {
+    "id": "101",
+    "title": "Site Reliability Engineer",
+    "company": "DataFlow Analytics",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Networking",
+      "Datadog"
+    ],
+    "preferredSkills": [
+      "Chaos Engineering",
+      "Toil Reduction",
+      "Kubernetes"
+    ],
+    "experienceLevel": "Entry",
+    "description": "Build platform tooling and self-service infrastructure for engineering teams."
+  },
+  {
+    "id": "102",
+    "title": "Site Reliability Engineer",
+    "company": "Stratosphere Systems",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "CI/CD"
+    ],
+    "preferredSkills": [
+      "Toil Reduction",
+      "Terraform",
+      "Grafana"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Implement chaos engineering practices and continuously improve system resilience."
+  },
+  {
+    "id": "103",
+    "title": "Site Reliability Engineer",
+    "company": "NovaTech",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Monitoring",
+      "Datadog",
+      "CI/CD"
+    ],
+    "preferredSkills": [
+      "Go",
+      "Kubernetes",
+      "Chaos Engineering",
+      "Incident Response"
+    ],
+    "experienceLevel": "Mid",
+    "description": "Ensure system reliability, define SLOs, and build automation to reduce operational toil."
+  },
+  {
+    "id": "104",
+    "title": "Site Reliability Engineer",
+    "company": "Hyperion Cloud",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Kubernetes",
+      "Prometheus",
+      "Networking",
+      "Helm"
+    ],
+    "preferredSkills": [
+      "Chaos Engineering",
+      "Incident Response",
+      "AWS"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Design and operate highly available distributed systems with robust monitoring and alerting."
+  },
+  {
+    "id": "105",
+    "title": "Site Reliability Engineer",
+    "company": "Quantum Solutions",
+    "requiredSkills": [
+      "Linux",
+      "Docker",
+      "Python",
+      "Kubernetes",
+      "Datadog",
+      "Monitoring",
+      "Prometheus"
+    ],
+    "preferredSkills": [
+      "Terraform",
+      "Grafana",
+      "Go"
+    ],
+    "experienceLevel": "Senior",
+    "description": "Lead incident response, conduct blameless postmortems, and drive reliability improvements."
+  }
+]

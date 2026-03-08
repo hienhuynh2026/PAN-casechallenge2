@@ -1,0 +1,44 @@
+ALEX CHEN
+alex.chen@email.com | (555) 123-4567 | San Francisco, CA
+
+SUMMARY
+Motivated computer science graduate with hands-on experience in full-stack web development and cloud technologies. Seeking a Cloud Engineer or DevOps role to leverage strong technical skills and collaborative experience.
+
+EDUCATION
+Bachelor's Degree in Computer Science
+University of California, Berkeley — Graduated May 2025
+GPA: 3.7/4.0
+
+SKILLS
+Languages: JavaScript, Python, TypeScript, SQL, Bash
+Frameworks: React, Node.js, Express, Django
+Cloud & DevOps: AWS, Docker, Kubernetes, Terraform, CI/CD
+Databases: PostgreSQL, MongoDB, Redis
+Tools: Git, GitHub Actions, Jenkins, Linux
+
+WORK EXPERIENCE
+Software Engineering Intern — CloudScale Inc.
+June 2024 – August 2024
+- Built REST API microservices using Node.js and Express, deployed on AWS ECS
+- Automated infrastructure provisioning with Terraform, reducing setup time by 40%
+- Implemented CI/CD pipelines using GitHub Actions for automated testing and deployment
+
+Teaching Assistant — UC Berkeley, CS 61B Data Structures
+January 2024 – May 2024
+- Led weekly lab sections of 30+ students on data structures and algorithms
+- Created supplementary learning materials and debugging guides
+
+PROJECTS
+CloudDeploy Dashboard
+- Full-stack app (React + Node.js) for monitoring AWS resource usage
+- Integrated AWS SDK to display real-time EC2 and S3 metrics
+- Deployed with Docker Compose on a VPS with automated health checks
+
+StudyBuddy
+- Collaborative study platform built with Django and PostgreSQL
+- Implemented real-time chat using WebSockets
+- Achieved 500+ active users during finals week
+
+CERTIFICATIONS
+AWS Cloud Practitioner — Amazon Web Services, 2024
+HashiCorp Terraform Associate — HashiCorp, 2024
