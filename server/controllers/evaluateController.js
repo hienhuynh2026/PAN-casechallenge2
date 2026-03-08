@@ -6,8 +6,8 @@ const { getRoleProfile } = require('../data/roleKnowledgeBase');
 // Full evaluation pipeline:
 //   1. Transfer model computes alignment score (always runs, deterministic)
 //   2. Gate:
-//      strong (≥75 + all guardrails)  → LLM deep grade
-//      borderline (55–74, or guardrail failure) → alignment + static resources + borderlineNote
+//      strong (≥70 + all guardrails)  → LLM deep grade
+//      borderline (55–69, or guardrail failure) → alignment + static resources + borderlineNote
 //      weak (< 55)                    → alignment + agentic gap-closing resources
 //
 // Borderline users now receive curated static resources so every user gets

@@ -42,8 +42,8 @@ const { getRoleProfile } = require('../data/roleKnowledgeBase');
 
 // ─── Thresholds ──────────────────────────────────────────────────────────────
 const THRESHOLDS = {
-  STRONG:     75, // score ≥ 75 AND all guardrails pass → pass to LLM
-  BORDERLINE: 55, // score 55–74 → alignment + static resources, offer manual grade
+  STRONG:     70, // score ≥ 70 AND all guardrails pass → pass to LLM
+  BORDERLINE: 55, // score 55–69 → alignment + static resources, offer manual grade
   // below 55 = weak → activate gap-closing resources; do not send to LLM
 };
 
@@ -249,7 +249,7 @@ function computeAlignmentScore(resumeText, targetRole) {
 
   // ── Status and gate decision ──────────────────────────────────────────────
   //   strong     → score ≥ STRONG AND all four guardrails pass
-  //   borderline → score in [55–74], OR score ≥ STRONG but a guardrail failed
+  //   borderline → score in [55–69], OR score ≥ STRONG but a guardrail failed
   //   weak       → score < BORDERLINE
   let status;
   if (alignmentScore >= THRESHOLDS.STRONG && guardrailIssues.length === 0) {

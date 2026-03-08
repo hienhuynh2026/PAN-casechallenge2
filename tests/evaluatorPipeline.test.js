@@ -53,7 +53,7 @@ const weakCloud         = fs.readFileSync(path.join(RESUMES_DIR, 'weak_cloud_eng
 const { computeAlignmentScore, THRESHOLDS } = require('../server/services/transferModelService');
 
 describe('computeAlignmentScore — scoring and guardrails', () => {
-  test('Strong frontend resume: scores ≥ 75 with all guardrails passing', () => {
+  test('Strong frontend resume: scores ≥ 70 with all guardrails passing', () => {
     const result = computeAlignmentScore(strongFrontend, 'Frontend Developer');
     expect(result.alignmentScore).toBeGreaterThanOrEqual(THRESHOLDS.STRONG);
     expect(result.status).toBe('strong');
@@ -68,7 +68,7 @@ describe('computeAlignmentScore — scoring and guardrails', () => {
   test('Borderline/weak data analyst resume: score below STRONG, does not go to LLM', () => {
     const result = computeAlignmentScore(borderlineAnalyst, 'Data Analyst');
     expect(result.goForLLM).toBe(false);
-    // The business admin resume should score below 75
+    // The business admin resume should score below 70
     expect(result.alignmentScore).toBeLessThan(THRESHOLDS.STRONG);
     // Status should be weak or borderline — not strong
     expect(['weak', 'borderline']).toContain(result.status);

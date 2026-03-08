@@ -20,7 +20,7 @@ const DIM_INFO = {
 export default function AlignmentResult({ alignment, onRequestGrade, onRequestAgent, gradeLoading, agentLoading }) {
   const meta = STATUS_META[alignment.status] || STATUS_META.weak;
   const score = alignment.alignmentScore;
-  const barColor = score >= 75 ? '#16a34a' : score >= 55 ? '#f59e0b' : '#ef4444';
+  const barColor = score >= 70 ? '#16a34a' : score >= 55 ? '#f59e0b' : '#ef4444';
 
   return (
     <div>
@@ -148,14 +148,14 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
       {/* Gate-specific call to action */}
       {alignment.status === 'strong' && (
         <div className="eval-gate-banner success">
-          <strong>Score above 75 — passed the threshold.</strong> Your resume was automatically sent to the AI for deeper grading below.
+          <strong>Score above 70 — passed the threshold.</strong> Your resume was automatically sent to the AI for deeper grading below.
         </div>
       )}
 
       {alignment.status === 'borderline' && (
         <div className="eval-gate-banner borderline">
           <div>
-            <strong>Score {score}/100 — almost there.</strong> You are close to the 75-point threshold. Requesting a deep grade will give you specific line-by-line coaching on how to push past it.
+            <strong>Score {score}/100 — almost there.</strong> You are close to the 70-point threshold. Requesting a deep grade will give you specific line-by-line coaching on how to push past it.
           </div>
           <button
             className="btn-primary"

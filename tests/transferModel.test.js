@@ -7,7 +7,7 @@ function loadResume(filename) {
   return fs.readFileSync(path.join(__dirname, '../data/sample_resumes', filename), 'utf8');
 }
 
-// ─── Test 1: Strong resume → score ≥ 75, status = strong, goForLLM = true ────
+// ─── Test 1: Strong resume → score ≥ 70, status = strong, goForLLM = true ────
 describe('Strong Frontend Developer resume', () => {
   let result;
 
@@ -15,7 +15,7 @@ describe('Strong Frontend Developer resume', () => {
     result = computeAlignmentScore(loadResume('strong_frontend.txt'), 'Frontend Developer');
   });
 
-  test('score is at least 75', () => {
+  test('score is at least 70', () => {
     expect(result.alignmentScore).toBeGreaterThanOrEqual(THRESHOLDS.STRONG);
   });
 
@@ -45,7 +45,7 @@ describe('Strong Frontend Developer resume', () => {
 // ─── Test 2: Borderline resume → score 55–74, status = borderline, goForLLM = false ──
 describe('Borderline Data Analyst resume (inline)', () => {
   // Inline resume that is stronger than borderline_data_analyst.txt but not
-  // strong enough to clear all guardrails or reach 75. Has SQL, Python, and
+  // strong enough to clear all guardrails or reach 70. Has SQL, Python, and
   // Tableau in the skills section and some project work, but no core analytics
   // tools in experience and missing several key skills.
   const resume = `
@@ -86,7 +86,7 @@ Bachelor's Degree in Statistics — State University, 2022
     expect(result.alignmentScore).toBeGreaterThanOrEqual(THRESHOLDS.BORDERLINE);
   });
 
-  test('score is below 75 OR guardrail failed → status is borderline', () => {
+  test('score is below 70 OR guardrail failed → status is borderline', () => {
     expect(result.status).toBe('borderline');
   });
 

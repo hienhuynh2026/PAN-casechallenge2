@@ -108,7 +108,7 @@ export default function ResumeEvaluator() {
           Select a target role, paste your resume, and get a score showing how well it matches real job postings.
           <br />
           <span className="eval-pipeline-hint">
-            Step 1: keyword alignment check scores your resume across 7 dimensions (0–100) &rarr; Strong (75+): AI gives line-by-line coaching &rarr; Weak (&lt;55): AI agent searches the web for courses, certifications &amp; bootcamps to close your gaps &rarr; Borderline (55–74): you can request either.
+            Step 1: keyword alignment check scores your resume across 7 dimensions (0–100) &rarr; Strong (70+): AI gives line-by-line coaching &rarr; Weak (&lt;55): AI agent searches the web for courses, certifications &amp; bootcamps to close your gaps &rarr; Borderline (55–69): you can request either.
           </span>
         </p>
 
