@@ -366,6 +366,25 @@ export default function ProfileForm({ profile, onSaved }) {
     }
   }
 
+  function handleClearAllFields() {
+    const confirmed = window.confirm(
+      'Clear all profile fields on this page? This only clears the form until you save.'
+    );
+    if (!confirmed) return;
+
+    setName('');
+    setSkills([]);
+    setSkillInput('');
+    setEducationLevel('');
+    setTargetRole('');
+    setWorkExperience([]);
+    setProjects([]);
+    setCertifications([]);
+    setCertInput('');
+    setErrors({});
+    setSuccessMsg('Form cleared. Upload a new resume or enter fresh profile details.');
+  }
+
   // ── Upload flow
   if (resumeStep === 'upload') {
     return (
@@ -543,6 +562,14 @@ export default function ProfileForm({ profile, onSaved }) {
         </div>
 
         <div className="profile-save-row">
+          <button
+            type="button"
+            className="btn-secondary btn-danger-outline"
+            onClick={handleClearAllFields}
+            disabled={saving}
+          >
+            Clear All Fields
+          </button>
           <button type="submit" className="btn-primary" disabled={saving}>
             {saving ? 'Saving...' : profile ? 'Save Changes' : 'Create Profile & Browse Jobs'}
           </button>

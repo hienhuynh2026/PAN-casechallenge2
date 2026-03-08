@@ -7,7 +7,9 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build:embeddings": "node scripts/buildJobEmbeddingIndex.js",
+    "evaluate:retrieval": "node scripts/evaluateRetrieval.js"
   },
   "dependencies": {
     "better-sqlite3": "^12.6.2",

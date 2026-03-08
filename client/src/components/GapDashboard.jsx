@@ -52,7 +52,7 @@ export default function GapDashboard({ profile }) {
     return (
       <div className="card loading-card">
         <div className="spinner" />
-        <p>Analyzing your fit for {profile.targetRole} across 100+ postings...</p>
+        <p>Analyzing your fit for {profile.targetRole} across job postings...</p>
       </div>
     );
   }
@@ -67,22 +67,36 @@ export default function GapDashboard({ profile }) {
 
   if (!result) return null;
 
-  const { targetRole, totalJobsAnalyzed, missingSkills, matchedSkills, coveragePercentage, summary, roadmap, isFallback, gradingStatus } = result;
+  const { targetRole, totalJobsAnalyzed, missingSkills, matchedSkills, coveragePercentage, summary, roadmap, isFallback, gateAnalysis } = result;
   const verdict = coveragePercentage >= 70 ? 'strong' : coveragePercentage >= 40 ? 'moderate' : 'early';
+  const hasGateSignal = gateAnalysis && gateAnalysis.available && typeof gateAnalysis.goForLLM === 'boolean';
+  const passedGate = hasGateSignal ? gateAnalysis.goForLLM : false;
+  const gateStatusText = hasGateSignal
+    ? `${gateAnalysis.status} (${gateAnalysis.alignmentScore}/100)`
+    : 'unknown';
+  const gateBadge = passedGate
+    ? {
+      label: isFallback ? 'Passed Threshold' : 'Passed Threshold (LLM Reviewed)',
+      color: '#166534',
+      bg: '#dcfce7',
+      border: '#86efac',
+      title: isFallback
+        ? `Passed deterministic score gate: ${gateStatusText}. LLM insights unavailable in this request.`
+        : `Passed deterministic score gate: ${gateStatusText}`,
+    }
+    : {
+      label: 'Below Threshold',
+      color: '#b91c1c',
+      bg: '#fee2e2',
+      border: '#fca5a5',
+      title: hasGateSignal
+        ? `Did not pass deterministic score gate: ${gateStatusText}`
+        : 'Gate status unavailable from dashboard response',
+    };
 
-  const status = gradingStatus || (isFallback ? 'fallback' : 'llm');
-  const statusDotColor =
-    status === 'manual'
-      ? '#2563eb'
-      : status === 'llm'
-        ? '#f4c430'
-        : '#dc2626';
-  const statusDotTitle =
-    status === 'manual'
-      ? 'Manual review'
-      : status === 'llm'
-        ? 'LLM grading applied'
-        : 'Transformer only (no LLM)';
+  // Retrieval method display
+  const retrievalMethod = result.retrievalAnalysis?.method || 'unknown';
+  const embeddingActive = result.retrievalAnalysis?.embeddingUsed || false;
 
   return (
     <div className="dashboard">
@@ -94,18 +108,59 @@ export default function GapDashboard({ profile }) {
               <h2>Your {targetRole} Readiness</h2>
               <span
                 className="status-dot"
-                style={{ background: statusDotColor }}
-                title={statusDotTitle}
-                aria-label={statusDotTitle}
+                style={{ background: gateBadge.color }}
+                title={gateBadge.title}
+                aria-label={gateBadge.title}
               />
             </div>
             <p className="hero-subtitle">
               Based on <strong>{totalJobsAnalyzed} real job postings</strong> for this role
             </p>
-            <div className={`verdict-badge verdict-${verdict}`}>
-              {verdict === 'strong' && 'Strong Candidate'}
-              {verdict === 'moderate' && 'Getting There'}
-              {verdict === 'early' && 'Early Stage'}
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div className={`verdict-badge verdict-${verdict}`}>
+                {verdict === 'strong' && 'Strong Candidate'}
+                {verdict === 'moderate' && 'Getting There'}
+                {verdict === 'early' && 'Early Stage'}
+              </div>
+              <span
+                title={gateBadge.title}
+                style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 600,
+                  color: gateBadge.color,
+                  background: gateBadge.bg,
+                  border: `1px solid ${gateBadge.border}`,
+                  borderRadius: '12px',
+                  padding: '0.15rem 0.55rem',
+                }}>
+                {gateBadge.label}
+              </span>
+              {hasGateSignal && (
+                <span style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 600,
+                  color: '#475569',
+                  background: '#f1f5f9',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '12px',
+                  padding: '0.15rem 0.55rem',
+                }}>
+                  Gate: {gateStatusText}
+                </span>
+              )}
+              {embeddingActive && (
+                <span style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 600,
+                  color: '#059669',
+                  background: '#ecfdf520',
+                  border: '1px solid #6ee7b740',
+                  borderRadius: '12px',
+                  padding: '0.15rem 0.55rem',
+                }}>
+                  Semantic Retrieval Active
+                </span>
+              )}
             </div>
           </div>
           <CoverageRing percentage={coveragePercentage} />
@@ -135,7 +190,17 @@ export default function GapDashboard({ profile }) {
 
       {isFallback && (
         <div className="fallback-banner">
-          AI insights unavailable — showing analysis from aggregated job posting data.
+          {passedGate
+            ? <>AI insights are temporarily unavailable; showing rule-based analysis from aggregated job posting data.{result.aiFallbackReason && result.aiFallbackReason !== 'below_threshold' && (
+                <span style={{ display: 'block', fontSize: '0.78rem', marginTop: '0.25rem', opacity: 0.8 }}>
+                  Reason: {result.aiFallbackReason === 'rate_limit' ? 'API rate limit reached — try again shortly'
+                    : result.aiFallbackReason === 'no_api_key' ? 'No GROQ_API_KEY configured'
+                    : result.aiFallbackReason === 'malformed_response' ? 'AI returned an unparseable response'
+                    : result.aiFallbackReason === 'network_error' ? 'Network error connecting to AI service'
+                    : 'Unexpected error'}
+                </span>
+              )}</>
+            : 'Showing rule-based analysis by design because this profile is currently below the AI review threshold.'}
         </div>
       )}
 
@@ -204,6 +269,22 @@ export default function GapDashboard({ profile }) {
                       </span>
                     </div>
                     {item.reason && <p className="action-step-reason">{item.reason}</p>}
+                    {item.resources && item.resources.length > 0 && (
+                      <div className="action-step-resources">
+                        {item.resources.map((r) => (
+                          <a
+                            key={r.url}
+                            href={r.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="resource-link"
+                          >
+                            {r.name}
+                            <span className="resource-type">{r.type}</span>
+                          </a>
+                        ))}
+                      </div>
+                    )}
                     <div className="action-step-bar">
                       <div
                         className="action-step-bar-fill"
@@ -216,6 +297,43 @@ export default function GapDashboard({ profile }) {
             </div>
           </div>
         )
+      )}
+
+      {/* Retrieval details (collapsible) */}
+      {result.retrievalAnalysis && (
+        <details style={{ marginBottom: '1rem' }}>
+          <summary style={{ cursor: 'pointer', fontSize: '0.82rem', color: '#64748b', padding: '0.3rem 0' }}>
+            Retrieval details &middot; Method: {retrievalMethod}
+          </summary>
+          <div className="card" style={{ marginTop: '0.3rem' }}>
+            {result.retrievalAnalysis.topMatches && result.retrievalAnalysis.topMatches.length > 0 && (
+              <div style={{ marginBottom: '0.75rem' }}>
+                <strong style={{ fontSize: '0.82rem' }}>Top retrieved jobs:</strong>
+                {result.retrievalAnalysis.topMatches.map((m) => (
+                  <div key={m.id} style={{ fontSize: '0.78rem', color: '#4b5563', padding: '0.2rem 0' }}>
+                    {m.title} @ {m.company} (score: {m.retrievalScore}, match: {m.matchStrength || 'n/a'})
+                  </div>
+                ))}
+              </div>
+            )}
+            {result.retrievalAnalysis.offlineMetrics && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', fontSize: '0.78rem' }}>
+                <div><strong>P@5:</strong> {result.retrievalAnalysis.offlineMetrics.precisionAtK}</div>
+                <div><strong>R@5:</strong> {result.retrievalAnalysis.offlineMetrics.recallAtK}</div>
+                <div><strong>MRR:</strong> {result.retrievalAnalysis.offlineMetrics.mrr}</div>
+                <div><strong>nDCG@5:</strong> {result.retrievalAnalysis.offlineMetrics.ndcgAtK}</div>
+              </div>
+            )}
+            {result.retrievalAnalysis.embeddingStats && (
+              <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+                Cache hits: {result.retrievalAnalysis.embeddingStats.cacheHits} &middot;
+                API calls: {result.retrievalAnalysis.embeddingStats.embeddingRequests} &middot;
+                Retries: {result.retrievalAnalysis.embeddingStats.retryCount} &middot;
+                Fallbacks: {result.retrievalAnalysis.embeddingStats.fallbackCount}
+              </div>
+            )}
+          </div>
+        </details>
       )}
     </div>
   );

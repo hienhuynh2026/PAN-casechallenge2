@@ -1,23 +1,22 @@
 const STATUS_META = {
-  strong:    { label: 'Ready to Apply',  color: '#16a34a', bg: '#f0fdf4', border: '#86efac', icon: '✓', detail: 'Your resume is well-aligned with this role. Proceed to deeper LLM grading below for specific coaching.' },
+  strong:    { label: 'Ready to Apply',  color: '#16a34a', bg: '#f0fdf4', border: '#86efac', icon: 'Y', detail: 'Your resume is well-aligned with this role. Proceed to deeper AI grading below for specific coaching.' },
   borderline: { label: 'Almost There',  color: '#b45309', bg: '#fffbeb', border: '#fcd34d', icon: '~', detail: 'Your resume is close but not yet competitive. A few targeted improvements could push you over the threshold.' },
-  weak:      { label: 'Needs Work',     color: '#dc2626', bg: '#fef2f2', border: '#fca5a5', icon: '!', detail: 'Your resume is missing key signals for this role. Use the agent recommendations below to close the gaps.' },
+  weak:      { label: 'Needs Work',     color: '#dc2626', bg: '#fef2f2', border: '#fca5a5', icon: '!', detail: 'Your resume is missing key signals for this role. Use the recommendations below to close the gaps.' },
 };
 
 const CONFIDENCE_LABELS = { high: 'High confidence', medium: 'Medium confidence', low: 'Low confidence' };
 
-// Human-readable labels and descriptions for each scoring dimension
 const DIM_INFO = {
-  coreSkills:      { label: 'Must-Have Skills',     max: 40, desc: 'The core technical skills required by nearly every employer for this role — most important for your score' },
-  preferredSkills: { label: 'Nice-to-Have Skills',  max: 15, desc: 'Bonus skills listed as "preferred" in job postings — these make you stand out from other candidates' },
+  coreSkills:      { label: 'Must-Have Skills',     max: 40, desc: 'The core technical skills required by nearly every employer for this role' },
+  preferredSkills: { label: 'Nice-to-Have Skills',  max: 15, desc: 'Bonus skills listed as "preferred" in job postings' },
   tools:           { label: 'Tools & Platforms',    max: 10, desc: 'Specific software, cloud platforms, or named tools mentioned in job listings' },
-  projectSignals:  { label: 'Domain Experience',    max: 15, desc: 'Evidence you have actually worked in this field — project types, domain words, industry vocabulary in your resume' },
-  relatedConcepts: { label: 'Technical Breadth',    max: 10, desc: 'Broader understanding of the field beyond the core skill list — shows you understand the wider ecosystem' },
-  actionVerbs:     { label: 'Achievement Language', max: 5,  desc: 'Strong action verbs showing what you built, led, or improved (e.g. "deployed", "optimised", "reduced")' },
-  impactLanguage:  { label: 'Quantified Results',   max: 5,  desc: 'Numbers and measurable outcomes in your resume — percentages, cost savings, performance gains' },
+  projectSignals:  { label: 'Domain Experience',    max: 15, desc: 'Evidence you have actually worked in this field' },
+  relatedConcepts: { label: 'Technical Breadth',    max: 10, desc: 'Broader understanding of the field beyond the core skill list' },
+  actionVerbs:     { label: 'Achievement Language', max: 5,  desc: 'Strong action verbs showing what you built, led, or improved' },
+  impactLanguage:  { label: 'Quantified Results',   max: 5,  desc: 'Numbers and measurable outcomes in your resume' },
 };
 
-export default function AlignmentResult({ alignment, onRequestGrade, onRequestAgent, gradeLoading, agentLoading }) {
+export default function AlignmentResult({ alignment, composite, onRequestGrade, onRequestAgent, gradeLoading, agentLoading }) {
   const meta = STATUS_META[alignment.status] || STATUS_META.weak;
   const score = alignment.alignmentScore;
   const barColor = score >= 70 ? '#16a34a' : score >= 55 ? '#f59e0b' : '#ef4444';
@@ -34,7 +33,7 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
               {meta.icon} {meta.label}
             </div>
             <div className="eval-status-detail">{meta.detail}</div>
-            <div className="eval-confidence">{CONFIDENCE_LABELS[alignment.confidence]} · Targeting <strong>{alignment.targetRole}</strong></div>
+            <div className="eval-confidence">{CONFIDENCE_LABELS[alignment.confidence]} &middot; Targeting <strong>{alignment.targetRole}</strong></div>
           </div>
           <div className="eval-score-ring">
             <svg viewBox="0 0 36 36" className="ring-svg">
@@ -51,9 +50,30 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
           </div>
         </div>
 
-        {/* Score breakdown with intuitive labels */}
+        {/* Composite score (when retrieval is active) */}
+        {composite && composite.retrievalWeight > 0 && (
+          <div style={{
+            background: '#f0f9ff',
+            border: '1px solid #bae6fd',
+            borderRadius: '8px',
+            padding: '0.5rem 0.85rem',
+            marginBottom: '0.75rem',
+            fontSize: '0.82rem',
+            color: '#0369a1',
+          }}>
+            Composite score (heuristic {Math.round(composite.heuristicWeight * 100)}% + retrieval {Math.round(composite.retrievalWeight * 100)}%): <strong>{composite.compositeScore}/100</strong>
+            <span style={{ display: 'block', fontSize: '0.75rem', color: '#64748b', marginTop: '0.15rem' }}>
+              Semantic: {composite.components.semanticRetrieval} &middot;
+              Skill overlap: {composite.components.skillOverlap} &middot;
+              Experience: {composite.components.experienceRelevance} &middot;
+              Education: {composite.components.educationRelevance}
+            </span>
+          </div>
+        )}
+
+        {/* Score breakdown */}
         <div className="eval-breakdown">
-          <div className="breakdown-heading">Score breakdown — hover each row to learn what it means</div>
+          <div className="breakdown-heading">Score breakdown &mdash; hover each row to learn what it means</div>
           {Object.entries(alignment.breakdown).map(([dim, pts]) => {
             const info = DIM_INFO[dim] || { label: dim, max: 10, desc: '' };
             const pct = Math.round((pts / info.max) * 100);
@@ -70,15 +90,15 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
         </div>
       </div>
 
-      {/* Guardrail issues — shown when a high score was demoted to borderline */}
+      {/* Guardrail issues */}
       {alignment.guardrailIssues && alignment.guardrailIssues.length > 0 && (
         <div className="card guardrail-card">
           <h3>Why Your Score Was Held Back</h3>
-          <p className="subtitle">Your total score was high enough to qualify, but these specific requirements were not met. Fix these first — they have the most impact on your rating.</p>
+          <p className="subtitle">Your total score was high enough to qualify, but these specific requirements were not met. Fix these first.</p>
           <ul className="guardrail-list">
             {alignment.guardrailIssues.map((issue, i) => (
               <li key={i} className="guardrail-item">
-                <span className="guardrail-icon">⚠</span>
+                <span className="guardrail-icon">!</span>
                 <span>{issue}</span>
               </li>
             ))}
@@ -90,10 +110,10 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
       {(alignment.coreMatched.length > 0 || alignment.coreMissed.length > 0) && (
         <div className="card">
           <h3>Must-Have Skills</h3>
-          <p className="subtitle">These are required by nearly every employer for this role — they carry the most weight in your score</p>
+          <p className="subtitle">These are required by nearly every employer for this role</p>
           {alignment.coreMatched.length > 0 && (
             <div className="eval-skill-group">
-              <span className="eval-skill-label matched">You have these ✓</span>
+              <span className="eval-skill-label matched">You have these</span>
               <div className="skill-tags">
                 {alignment.coreMatched.map((s) => <span key={s} className="skill-tag has-skill">{s}</span>)}
               </div>
@@ -129,8 +149,8 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
       {/* Missing categories */}
       {alignment.missingCategories.length > 0 && (
         <div className="card">
-          <h3>Skill Gaps — Where to Focus</h3>
-          <p className="subtitle">Areas where your resume is weak. "Critical" means less than 20% of that category is present — fix these first.</p>
+          <h3>Skill Gaps &mdash; Where to Focus</h3>
+          <p className="subtitle">Areas where your resume is weak. "Critical" means less than 20% of that category is present.</p>
           <div className="eval-category-grid">
             {alignment.missingCategories.map((g) => (
               <div key={g.category} className={`eval-category-chip gap ${g.critical ? 'critical' : ''}`}>
@@ -148,14 +168,14 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
       {/* Gate-specific call to action */}
       {alignment.status === 'strong' && (
         <div className="eval-gate-banner success">
-          <strong>Score above 70 — passed the threshold.</strong> Your resume was automatically sent to the AI for deeper grading below.
+          <strong>Score above 70 &mdash; passed the threshold.</strong> Your resume was automatically sent for deeper AI grading below.
         </div>
       )}
 
       {alignment.status === 'borderline' && (
         <div className="eval-gate-banner borderline">
           <div>
-            <strong>Score {score}/100 — almost there.</strong> You are close to the 70-point threshold. Requesting a deep grade will give you specific line-by-line coaching on how to push past it.
+            <strong>Score {score}/100 &mdash; almost there.</strong> You are close to the 70-point threshold. Requesting a deep grade will give you specific line-by-line coaching.
           </div>
           <button
             className="btn-primary"
@@ -170,7 +190,7 @@ export default function AlignmentResult({ alignment, onRequestGrade, onRequestAg
       {alignment.status === 'weak' && (
         <div className="eval-gate-banner weak">
           <div>
-            <strong>Score {score}/100 — needs work.</strong> Your resume is missing too many signals to be graded usefully yet. Use the agent recommendations below — they include curated courses, project ideas, and resume tips tailored to your specific gaps.
+            <strong>Score {score}/100 &mdash; needs work.</strong> Your resume is missing too many signals to be graded usefully yet. Use the recommendations below to close your gaps.
           </div>
           <button
             className="btn-secondary"

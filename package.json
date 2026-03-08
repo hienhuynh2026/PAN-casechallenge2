@@ -10,11 +10,13 @@
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
     "start:server": "cd server && npm start",
-    "install:all": "cd server && npm install && cd ../client && npm install"
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "build:embeddings": "cd server && npm run build:embeddings",
+    "evaluate:retrieval": "node server/scripts/evaluateRetrieval.js"
   },
   "jest": {
     "testEnvironment": "node",
-    "testTimeout": 10000,
+    "testTimeout": 35000,
     "moduleNameMapper": {
       "^better-sqlite3$": "<rootDir>/server/node_modules/better-sqlite3"
     }

@@ -3,11 +3,12 @@
  *
  * Integration tests for the full evaluation pipeline:
  *   - Transfer model (alignment scoring + guardrails)
+ *   - RAG retrieval (semantic job matching)
  *   - Gate decisions (strong / borderline / weak)
  *   - Agent service (resource delivery with and without Groq)
  *   - API endpoints (/api/evaluate, /api/evaluate/grade, /api/evaluate/agent)
  *
- * All Groq calls are mocked. No API key or network access required.
+ * All Groq and Gemini calls are mocked. No API key or network access required.
  */
 
 const request = require('supertest');
@@ -34,8 +35,18 @@ jest.mock('../server/services/agentService', () => {
   const actual = jest.requireActual('../server/services/agentService');
   return {
     ...actual,
-    // Override findGapResources to expose controllable behavior in tests
     findGapResources: jest.fn(actual.findGapResources),
+  };
+});
+
+// Mock Gemini embedding service to avoid real API calls
+jest.mock('../server/services/geminiEmbeddingService', () => {
+  const actual = jest.requireActual('../server/services/geminiEmbeddingService');
+  return {
+    ...actual,
+    isGeminiEmbeddingConfigured: jest.fn(() => false),
+    embedSingle: jest.fn(() => Promise.reject(new Error('Mocked: no API key'))),
+    embedBatch: jest.fn(() => Promise.reject(new Error('Mocked: no API key'))),
   };
 });
 
@@ -50,27 +61,23 @@ const borderlineAnalyst = fs.readFileSync(path.join(RESUMES_DIR, 'borderline_dat
 const weakCloud         = fs.readFileSync(path.join(RESUMES_DIR, 'weak_cloud_engineer.txt'), 'utf8');
 
 // ─── Unit tests: transfer model scoring ──────────────────────────────────────
-const { computeAlignmentScore, THRESHOLDS } = require('../server/services/transferModelService');
+const { computeAlignmentScore, THRESHOLDS } = require('../server/services/alignmentScoringService');
 
 describe('computeAlignmentScore — scoring and guardrails', () => {
-  test('Strong frontend resume: scores ≥ 70 with all guardrails passing', () => {
+  test('Strong frontend resume: scores >= 70 with all guardrails passing', () => {
     const result = computeAlignmentScore(strongFrontend, 'Frontend Developer');
     expect(result.alignmentScore).toBeGreaterThanOrEqual(THRESHOLDS.STRONG);
     expect(result.status).toBe('strong');
     expect(result.goForLLM).toBe(true);
     expect(result.guardrailIssues).toHaveLength(0);
-    // Core skills should all be matched
     expect(result.coreMatched.length).toBeGreaterThanOrEqual(4);
-    // At least 2 core skills demonstrated in experience or projects
     expect(result.coreInExpOrProjCount).toBeGreaterThanOrEqual(2);
   });
 
   test('Borderline/weak data analyst resume: score below STRONG, does not go to LLM', () => {
     const result = computeAlignmentScore(borderlineAnalyst, 'Data Analyst');
     expect(result.goForLLM).toBe(false);
-    // The business admin resume should score below 70
     expect(result.alignmentScore).toBeLessThan(THRESHOLDS.STRONG);
-    // Status should be weak or borderline — not strong
     expect(['weak', 'borderline']).toContain(result.status);
   });
 
@@ -79,9 +86,7 @@ describe('computeAlignmentScore — scoring and guardrails', () => {
     expect(result.alignmentScore).toBeLessThan(THRESHOLDS.BORDERLINE);
     expect(result.status).toBe('weak');
     expect(result.goForLLM).toBe(false);
-    // No core skills should match
     expect(result.coreMatched).toHaveLength(0);
-    // All guardrails should fail
     expect(result.guardrailIssues.length).toBeGreaterThan(0);
   });
 
@@ -102,7 +107,6 @@ describe('computeAlignmentScore — scoring and guardrails', () => {
   });
 
   test('Borderline resume: borderlineNote is populated', () => {
-    // Create a synthetic borderline resume — has some core skills but limited evidence
     const borderlineResume = `
 SUMMARY
 Junior developer with some experience in JavaScript and basic React.
@@ -127,12 +131,9 @@ Associate Degree in Computer Science, 2023
       expect(result.borderlineNote).toBeTruthy();
       expect(result.borderlineNote).toContain('Frontend Developer');
     }
-    // Regardless of exact score, should not go to LLM without full evidence
-    // (This test passes as long as the borderlineNote is set when status is borderline)
   });
 
   test('Skills-only stuffed resume: section-weighting deflates core score', () => {
-    // A resume that lists many core skills but has no experience using them
     const stuffedResume = `
 SUMMARY
 Passionate learner with interest in cloud engineering.
@@ -149,18 +150,16 @@ EDUCATION
 High School Diploma, 2020
 `;
     const result = computeAlignmentScore(stuffedResume, 'Cloud Engineer');
-    // Should NOT pass to LLM — skills are listed but not demonstrated
     expect(result.goForLLM).toBe(false);
-    // Guardrail B should catch this: < 2 core skills in experience/projects
     expect(result.coreInExpOrProjCount).toBeLessThan(2);
   });
 });
 
 // ─── Integration tests: API pipeline ──────────────────────────────────────────
-describe('POST /api/evaluate — full pipeline', () => {
+describe('POST /api/evaluate — full pipeline with RAG', () => {
   beforeEach(() => jest.clearAllMocks());
 
-  test('Strong resume passes to LLM grading', async () => {
+  test('Strong resume passes to LLM grading and includes retrieval data', async () => {
     gradeResumeWithLLM.mockResolvedValue({
       overallScore: 88,
       readinessLevel: 'Ready',
@@ -182,8 +181,18 @@ describe('POST /api/evaluate — full pipeline', () => {
     expect(res.body.grade).toBeDefined();
     expect(res.body.grade.overallScore).toBe(88);
     expect(res.body.grade.isFallback).toBe(false);
-    // No agent resources for a strong pass
     expect(res.body.agent).toBeUndefined();
+
+    // RAG-specific fields
+    expect(res.body.retrieval).toBeDefined();
+    expect(res.body.retrieval.topJobs).toBeInstanceOf(Array);
+    expect(res.body.retrieval.method).toBeTruthy();
+    expect(res.body.composite).toBeDefined();
+    expect(typeof res.body.composite.compositeScore).toBe('number');
+    expect(res.body.scoringMethod).toBeDefined();
+    expect(res.body.scoringMethod.label).toBeTruthy();
+    expect(res.body.scoringMethod.id).toBeTruthy();
+    expect(res.body.explainability).toBeDefined();
   });
 
   test('Strong resume: LLM failure triggers grade fallback, not a 500', async () => {
@@ -207,18 +216,18 @@ describe('POST /api/evaluate — full pipeline', () => {
     expect(res.status).toBe(200);
     expect(res.body.alignment.status).toBe('weak');
     expect(res.body.alignment.goForLLM).toBe(false);
-    // Grade should NOT be called for a weak resume
     expect(gradeResumeWithLLM).not.toHaveBeenCalled();
-    // Agent resources should be present
     expect(res.body.agent).toBeDefined();
     expect(res.body.agent.categories).toBeDefined();
     expect(res.body.agent.quickWins).toBeDefined();
+
+    // Retrieval still present even for weak resume
+    expect(res.body.retrieval).toBeDefined();
+    expect(res.body.scoringMethod).toBeDefined();
   });
 
   test('Weak resume agent: resources are always returned even when Groq summary fails', async () => {
-    // Override findGapResources to simulate Groq summary failing (still returns static)
     findGapResources.mockImplementationOnce(async (targetRole, missingCategories) => {
-      // Simulate what happens when Groq summary fails but static resources succeed
       const { findGapResourcesFallback } = jest.requireActual('../server/services/agentService');
       return findGapResourcesFallback(targetRole, missingCategories);
     });
@@ -230,9 +239,7 @@ describe('POST /api/evaluate — full pipeline', () => {
     expect(res.status).toBe(200);
     expect(res.body.agent).toBeDefined();
     expect(res.body.agent.isFallback).toBe(true);
-    // Should still have valid categories with resources
     expect(Array.isArray(res.body.agent.categories)).toBe(true);
-    // Each category should have learn resources from the static KB
     res.body.agent.categories.forEach((cat) => {
       expect(cat.gap).toBeTruthy();
       expect(Array.isArray(cat.build)).toBe(true);
@@ -245,19 +252,83 @@ describe('POST /api/evaluate — full pipeline', () => {
       .send({ resumeText: borderlineAnalyst, targetRole: 'Data Analyst' });
 
     expect(res.status).toBe(200);
-    // This resume must never qualify for LLM grading
     expect(res.body.alignment.goForLLM).toBe(false);
-    // LLM grade should NOT be automatically triggered
     expect(gradeResumeWithLLM).not.toHaveBeenCalled();
-    // Both borderline and weak paths must include resource guidance
     expect(res.body.agent).toBeDefined();
     expect(Array.isArray(res.body.agent.categories)).toBe(true);
     expect(Array.isArray(res.body.agent.quickWins)).toBe(true);
     expect(res.body.agent.summary).toBeTruthy();
-    // Borderline-specific: explanatory note should be present
     if (res.body.alignment.status === 'borderline') {
       expect(res.body.borderlineNote).toBeTruthy();
     }
+  });
+
+  test('Response includes honest scoring method label', async () => {
+    gradeResumeWithLLM.mockResolvedValue({
+      overallScore: 85,
+      readinessLevel: 'Ready',
+      roleFitSummary: 'Good.',
+      strengths: [],
+      weakAreas: [],
+      actionSteps: [],
+      resumeImprovements: [],
+      bulletRewrites: [],
+    });
+
+    const res = await request(app)
+      .post('/api/evaluate')
+      .send({ resumeText: strongFrontend, targetRole: 'Frontend Developer' });
+
+    expect(res.status).toBe(200);
+    const method = res.body.scoringMethod;
+    expect(method).toBeDefined();
+    // With mocked Gemini (disabled), should not claim semantic retrieval
+    expect(method.label).not.toContain('Transformer');
+    expect(method.label).not.toContain('Deep Learning');
+    expect(method.id).toBeTruthy();
+    expect(method.description).toBeTruthy();
+  });
+
+  test('Response includes missingSkillsHelp with curated resources', async () => {
+    const res = await request(app)
+      .post('/api/evaluate')
+      .send({ resumeText: weakCloud, targetRole: 'Cloud Engineer' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.missingSkillsHelp).toBeInstanceOf(Array);
+    expect(res.body.missingSkillsHelp.length).toBeGreaterThan(0);
+
+    const firstSkill = res.body.missingSkillsHelp[0];
+    expect(firstSkill.skill).toBeTruthy();
+    expect(typeof firstSkill.frequency).toBe('number');
+    expect(typeof firstSkill.isRequired).toBe('boolean');
+    expect(firstSkill.whyItMatters).toBeTruthy();
+    // Resources should be curated (have name + url)
+    if (firstSkill.resources.length > 0) {
+      expect(firstSkill.resources[0].name).toBeTruthy();
+      expect(firstSkill.resources[0].url).toBeTruthy();
+    }
+  });
+
+  test('Strong resume still gets missingSkillsHelp for non-matched skills', async () => {
+    gradeResumeWithLLM.mockResolvedValue({
+      overallScore: 88,
+      readinessLevel: 'Ready',
+      roleFitSummary: 'Excellent fit.',
+      strengths: [],
+      weakAreas: [],
+      actionSteps: [],
+      resumeImprovements: [],
+      bulletRewrites: [],
+    });
+
+    const res = await request(app)
+      .post('/api/evaluate')
+      .send({ resumeText: strongFrontend, targetRole: 'Frontend Developer' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.missingSkillsHelp).toBeInstanceOf(Array);
+    // Strong resume may still have some missing skills from job postings
   });
 
   test('Validation: missing resumeText returns 400', async () => {
@@ -306,7 +377,6 @@ describe('findGapResourcesFallback — static resource delivery', () => {
     expect(cat.gap).toBe('CI/CD Pipelines');
     expect(Array.isArray(cat.learn)).toBe(true);
     expect(cat.learn.length).toBeGreaterThan(0);
-    // Each resource must have name, url, type
     cat.learn.forEach((r) => {
       expect(r.name).toBeTruthy();
       expect(r.url).toBeTruthy();

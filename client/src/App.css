@@ -25,6 +25,8 @@ nav { display: flex; gap: 0.5rem; }
 .btn-primary.full-width { width: 100%; margin-top: 1rem; }
 .btn-secondary { background: white; color: #1e3a5f; border: 2px solid #1e3a5f; border-radius: 8px; padding: 0.55rem 1.1rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
 .btn-secondary:hover { background: #f0f4f8; }
+.btn-danger-outline { color: #991b1b; border-color: #fca5a5; }
+.btn-danger-outline:hover { background: #fef2f2; }
 .back-btn { margin-bottom: 1rem; }
 
 /* Forms */
@@ -317,7 +319,7 @@ nav { display: flex; gap: 0.5rem; }
 /* ── Profile page (Simplify-style) ─────────────────────────────────────────── */
 .profile-page { display: flex; flex-direction: column; gap: 0; }
 .profile-section { margin-bottom: 1rem; }
-.profile-save-row { padding: 0.5rem 0 2rem; }
+.profile-save-row { padding: 0.5rem 0 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
 /* Resume panel */
 .resume-panel { background: white; border-radius: 12px; padding: 1.1rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
@@ -380,3 +382,20 @@ nav { display: flex; gap: 0.5rem; }
 .review-section:last-of-type { border-bottom: none; }
 .review-actions { display: flex; gap: 0.75rem; padding-top: 1rem; }
 .empty-hint { font-size: 0.85rem; color: #94a3b8; margin: 0.25rem 0 0.5rem; }
+
+/* Missing Skills Help */
+.missing-skills-help h4 { font-size: 1.1rem; color: #1e3a5f; margin-bottom: 0.25rem; }
+.missing-skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; margin-bottom: 0.75rem; }
+.missing-skill-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.875rem; }
+.missing-skill-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+.missing-skill-name { font-weight: 600; font-size: 0.95rem; color: #1e293b; }
+.missing-skill-tag { font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
+.tag-required { background: #fef2f2; color: #dc2626; }
+.tag-preferred { background: #eff6ff; color: #2563eb; }
+.missing-skill-why { font-size: 0.825rem; color: #64748b; margin-bottom: 0.35rem; }
+.missing-skill-improve { font-size: 0.825rem; color: #475569; margin-bottom: 0.35rem; }
+.missing-skill-resources { display: flex; flex-direction: column; gap: 0.3rem; }
+.action-step-resources { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin: 0.3rem 0; }
+.resource-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: #2563eb; text-decoration: none; }
+.resource-link:hover { text-decoration: underline; }
+.resource-type { font-size: 0.65rem; color: #94a3b8; background: #f1f5f9; padding: 0.1rem 0.35rem; border-radius: 4px; }

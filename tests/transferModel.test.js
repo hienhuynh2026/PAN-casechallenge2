@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { computeAlignmentScore, THRESHOLDS, parseSections } = require('../server/services/transferModelService');
+const { computeAlignmentScore, THRESHOLDS, parseSections } = require('../server/services/alignmentScoringService');
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
 function loadResume(filename) {
