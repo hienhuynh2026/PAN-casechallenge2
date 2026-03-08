@@ -43,8 +43,20 @@ const RESOURCE_MAP = {
     { name: 'OverTheWire: Bandit', url: 'https://overthewire.org/wargames/bandit/', type: 'Tutorial' },
   ],
   'Network Security': [
-    { name: 'Cybrary Network Security', url: 'https://www.cybrary.it/course/network-security/', type: 'Course' },
+    { name: 'Cybrary Network Security', url: 'https://www.cybrary.it/catalog', type: 'Course' },
     { name: 'SANS Cyber Aces', url: 'https://www.sans.org/cyberaces/', type: 'Course' },
+  ],
+  Compliance: [
+    { name: 'NIST Cybersecurity Framework', url: 'https://www.nist.gov/cyberframework', type: 'Docs' },
+    { name: 'ISO/IEC 27001 Overview', url: 'https://www.iso.org/isoiec-27001-information-security.html', type: 'Docs' },
+  ],
+  Cryptography: [
+    { name: 'Crypto 101 (free book)', url: 'https://www.crypto101.io/', type: 'Docs' },
+    { name: 'Cryptography I (Stanford/Coursera)', url: 'https://www.coursera.org/learn/crypto', type: 'Course' },
+  ],
+  'Cloud Security': [
+    { name: 'AWS Security Fundamentals', url: 'https://www.aws.training/Details/Curriculum?id=20685', type: 'Course' },
+    { name: 'Microsoft Learn: Cloud Security', url: 'https://learn.microsoft.com/en-us/training/security/', type: 'Course' },
   ],
   SIEM: [
     { name: 'Splunk Free Training', url: 'https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html', type: 'Course' },

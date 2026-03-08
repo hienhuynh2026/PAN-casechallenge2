@@ -33,7 +33,19 @@ const SKILL_RESOURCES = {
   'Data Visualization': [{ name: 'Tableau Free Training', url: 'https://www.tableau.com/learn/training', type: 'Course' }],
   Statistics: [{ name: 'Khan Academy Statistics', url: 'https://www.khanacademy.org/math/statistics-probability', type: 'Course' }],
   'Apache Spark': [{ name: 'Apache Spark Docs', url: 'https://spark.apache.org/docs/latest/', type: 'Docs' }],
-  'Network Security': [{ name: 'Cybrary Network Security', url: 'https://www.cybrary.it/course/network-security/', type: 'Course' }],
+  'Network Security': [{ name: 'Cybrary Network Security', url: 'https://www.cybrary.it/catalog', type: 'Course' }],
+  Compliance: [
+    { name: 'NIST Cybersecurity Framework', url: 'https://www.nist.gov/cyberframework', type: 'Docs' },
+    { name: 'ISO/IEC 27001 Overview', url: 'https://www.iso.org/isoiec-27001-information-security.html', type: 'Docs' },
+  ],
+  Cryptography: [
+    { name: 'Crypto 101 (free book)', url: 'https://www.crypto101.io/', type: 'Docs' },
+    { name: 'Cryptography I (Stanford/Coursera)', url: 'https://www.coursera.org/learn/crypto', type: 'Course' },
+  ],
+  'Cloud Security': [
+    { name: 'AWS Security Fundamentals', url: 'https://www.aws.training/Details/Curriculum?id=20685', type: 'Course' },
+    { name: 'Microsoft Learn: Cloud Security', url: 'https://learn.microsoft.com/en-us/training/security/', type: 'Course' },
+  ],
   SIEM: [{ name: 'Splunk Free Training', url: 'https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html', type: 'Course' }],
   'Penetration Testing': [{ name: 'TryHackMe', url: 'https://tryhackme.com/', type: 'Tutorial' }],
 };
@@ -446,13 +458,7 @@ async function getDashboard(req, res) {
 
   try {
     const ai = await getAIInsights(
-      targetRole,
-      matchingJobs.length,
-      missingSkills,
-      matchedSkills,
-      coveragePercentage,
-      gateAnalysis,
-      topMatches
+      targetRole, matchingJobs.length, missingSkills, matchedSkills, coveragePercentage
     );
 
     // Attach curated resources to AI roadmap items (AI doesn't generate URLs)

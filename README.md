@@ -1,5 +1,9 @@
 # Skill-Bridge Career Navigator
 
+**Candidate Name:** Hien Huynh
+**Scenario Chosen:** Scenario 2: Skill-Bridge Career Navigator
+**Estimated Time Spent:** ~6 hours coding; ~2 hours for documentation and video recording
+
 Full-stack app for resume parsing, profile management, role alignment scoring, semantic job retrieval, and AI-assisted coaching.
 
 ## Quick Start
@@ -14,18 +18,13 @@ Full-stack app for resume parsing, profile management, role alignment scoring, s
 ### Setup
 
 ```bash
-# 1) Install dependencies
 npm install
 npm run install:all
 
-# 2) Configure env
 cp .env.example .env
-# set GROQ_API_KEY and/or GEMINI_API_KEY if you want AI-backed features
 
-# 2.5) Build job embedding index (recommended for faster retrieval)
 npm run build:embeddings
 
-# 3) Run backend and frontend
 npm run dev:server   # backend on http://localhost:3847
 npm run dev:client   # frontend on http://localhost:3000
 ```
@@ -64,25 +63,25 @@ tests/                           Jest + supertest suites
 
 The evaluation pipeline uses a real retrieval-augmented approach:
 
-1. **Parse profile** — extract structured data from resume
-2. **Normalize profile** — build retrieval-friendly document (skills, experience, projects, education)
-3. **Retrieve top 5 jobs** — semantic similarity via Gemini embeddings (or TF-IDF fallback)
-4. **Compute alignment** — 7-dimension heuristic scoring with section weighting
-5. **Composite scoring** — weighted blend of heuristic + semantic retrieval + skill overlap
-6. **Gate decision** — route to LLM grading, gap analysis, or static resources
-7. **Explainability** — per-job evidence showing why each job matched
+1. **Parse profile**: extract structured data from resume
+2. **Normalize profile**: build retrieval-friendly document (skills, experience, projects, education)
+3. **Retrieve top 5 jobs**: semantic similarity via Gemini embeddings (or TF-IDF fallback)
+4. **Compute alignment**: 7-dimension heuristic scoring with section weighting
+5. **Composite scoring**: weighted blend of heuristic + semantic retrieval + skill overlap
+6. **Gate decision**: route to LLM grading, gap analysis, or static resources
+7. **Explainability**: per-job evidence showing why each job matched
 
 #### Retrieval flow
 
 ```
-Profile → Normalize → Embed (Gemini) → Cosine similarity → Top 5 jobs
-                                         ↓
-                              Precomputed job embeddings (index file)
-                              or batch embed at runtime
-                                         ↓
-                              Blend: 55% semantic + 30% skill overlap + 10% role boost + 5% education
-                                         ↓
-                              Match classification: strong / moderate / weak / none
+Profile -> Normalize -> Embed (Gemini) -> Cosine similarity -> Top 5 jobs
+                                          |
+                               Precomputed job embeddings (index file)
+                               or batch embed at runtime
+                                          |
+                               Blend: 55% semantic + 30% skill overlap + 10% role boost + 5% education
+                                          |
+                               Match classification: strong / moderate / weak / none
 ```
 
 #### Per-job explainability includes:
@@ -123,27 +122,27 @@ Profile → Normalize → Embed (Gemini) → Cosine similarity → Top 5 jobs
 
 #### Gate outcomes
 
-- `strong`: score `>= 70` and all guardrails pass → auto LLM deep grade
-- `borderline`: score `55-69`, or `>=70` with failed guardrail → alignment + reasons + optional manual deep grade
-- `weak`: score `<55` → skip LLM grade; return gap-closing resources
+- `strong`: score `>= 70` and all guardrails pass -> auto LLM deep grade
+- `borderline`: score `55-69`, or `>=70` with failed guardrail -> alignment + reasons + optional manual deep grade
+- `weak`: score `<55` -> skip LLM grade; return gap-closing resources
 
 ### 3) Missing Skills Help
 
 Both the evaluator and dashboard attach curated learning resources to skill gaps:
 
-- **Evaluator** (`POST /api/evaluate`): returns `missingSkillsHelp[]` — top 8 missing skills from the best-matching retrieved jobs, each with:
-  - `whyItMatters` — grounded in job frequency (e.g., "Required by 4 of 5 top-matching jobs")
-  - `howToImprove` — project idea from `roleKnowledgeBase.projectIdeas`
-  - `resources` — 1-2 curated links (docs, courses, tutorials)
-  - `isRequired` — whether the skill appears as required vs preferred
+- **Evaluator** (`POST /api/evaluate`): returns `missingSkillsHelp[]` with the top 8 missing skills from the best-matching retrieved jobs, each with:
+  - `whyItMatters`: grounded in job frequency (e.g., "Required by 4 of 5 top-matching jobs")
+  - `howToImprove`: project idea from `roleKnowledgeBase.projectIdeas`
+  - `resources`: 1-2 curated links (docs, courses, tutorials)
+  - `isRequired`: whether the skill appears as required vs preferred
 - **Dashboard** (`POST /api/dashboard`): each roadmap/Action Step item includes `resources[]`
 
 #### Resource sourcing (no hallucinated links)
 
-All learning resources come from two preset maps — never generated by an LLM:
+All learning resources come from two preset maps, never generated by an LLM:
 
-1. **`SKILL_RESOURCES`** — direct skill-name lookup (~20 skills: Python, AWS, Docker, etc.)
-2. **`roleKnowledgeBase.resourceHints`** — category-level fallback per role (e.g., ML Engineer "Deep Learning Frameworks" category links)
+1. **`SKILL_RESOURCES`**: direct skill-name lookup (~20 skills: Python, AWS, Docker, etc.)
+2. **`roleKnowledgeBase.resourceHints`**: category-level fallback per role (e.g., ML Engineer "Deep Learning Frameworks" category links)
 
 Skills not covered by either map receive no resource links. Live web search would require an additional API (e.g., Tavily, Serper, or Perplexity).
 
@@ -180,7 +179,7 @@ The embedding service handles Gemini free-tier limits without API key rotation (
 - **Batch embedding**: Uses `batchEmbedContents` API to embed up to 100 texts per request
 - **Content-hash caching**: In-memory cache keyed by SHA-256 of text content; avoids re-embedding identical content
 - **Precomputed job index**: Job embeddings built offline via `npm run build:embeddings`; only profile is embedded at request time
-- **Retry queue**: Sequential queue with exponential backoff (1s → 2s → 4s) on 429 responses
+- **Retry queue**: Sequential queue with exponential backoff (1s -> 2s -> 4s) on 429 responses
 - **Configurable delay**: `EMBEDDING_REQUEST_DELAY_MS` (default 700ms) between batched requests
 - **TF-IDF fallback**: Automatic fallback to lexical retrieval when embedding service is throttled or unavailable
 - **Instrumentation**: Cache hit rate, API call count, retry count, queue wait time, fallback frequency exposed via API responses
@@ -188,7 +187,7 @@ The embedding service handles Gemini free-tier limits without API key rotation (
 ### 7) Resume Upload + Parsing
 
 - Accepts `.pdf` and `.txt` (`2MB` max)
-- AI extraction via Groq → deterministic parser fallback
+- AI extraction via Groq with deterministic parser fallback
 - Extracts: contact info, education, skills, work experience, projects, certifications
 
 ### 8) Profile + CRUD
@@ -199,10 +198,8 @@ The embedding service handles Gemini free-tier limits without API key rotation (
 ## Embedding Index Workflow
 
 ```bash
-# Build index whenever data/sample_jobs.json changes
 npm run build:embeddings
 
-# Or directly:
 cd server && node scripts/buildJobEmbeddingIndex.js
 ```
 
@@ -214,7 +211,6 @@ At runtime:
 ## Retrieval Quality Evaluation
 
 ```bash
-# Run evaluation on curated test cases
 node server/scripts/evaluateRetrieval.js
 ```
 
@@ -270,6 +266,20 @@ Tests mock all external services (Groq, Gemini). No API keys needed.
 - No auth/multi-tenant isolation (single-user local workflow)
 - Embedding vectors are stored in a JSON file, not a vector database (sufficient for ~100 jobs)
 - Learning resource links are curated/preset (~20 skills + role category hints); skills outside those maps get no links without a web search API
+
+## AI Disclosure
+
+**Did you use an AI assistant?** Yes. I used Claude Code (Copilot-style, powered by Claude Opus 4.6).
+
+**How did you verify the suggestions?**
+I tested the system in layers rather than relying on a single end-to-end demo. At the core level, I verified that the parser and scoring logic behaved as intended, including how the system reads resume sections, extracts work experience and projects, detects skills, and applies the rule-based guardrails for strong, borderline, weak, and keyword-stuffed resumes. The goal was to ensure the threshold measured real evidence and relevance, not just buzzword repetition.
+
+From there, I tested the main backend flows through API integration tests using Jest and Supertest, covering key endpoints such as resume parsing, profile creation, evaluation, dashboard generation, and gap analysis. These tests checked successful cases, validation errors, and fallback behavior. For example, I verified that candidates below the scoring threshold do not trigger unnecessary LLM calls, and that candidates who pass the gate receive deeper AI-generated feedback when the response is valid.
+
+I also deliberately tested failure scenarios to ensure resilience. I simulated malformed LLM JSON, markdown-wrapped JSON, API failures, and rate-limit conditions. In each case, the app was designed to fail gracefully by returning deterministic fallback output with clear status flags and reason fields rather than crashing or leaving the user with nothing. I additionally validated the SQLite persistence layer to confirm that profile data saved and loaded correctly across CRUD flows for work experience and projects.
+
+**Example of a suggestion I rejected or changed:**
+The AI initially proposed building the RAG pipeline using Groq for both evaluation and embeddings. I pushed back on this because Groq does not expose embedding endpoints at the free tier. I researched alternatives and determined that Gemini's `gemini-embedding-001` model fit the requirements; it supports batch embedding, has a generous free tier, and returns high-quality dense vectors suitable for cosine similarity retrieval. The final architecture uses Groq exclusively for LLM grading and gap summarization, and Gemini exclusively for semantic embeddings, with TF-IDF as the automatic fallback when Gemini is unavailable.
 
 ## Security Notes
 
